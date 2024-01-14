@@ -6,9 +6,9 @@ interface Props {}
 const FooterSocailMedia = (props: Props) => {
     return (
         <div className="footer-social-link-container">
-            {FooterImage.map((image) => {
+            {FooterImage.map((image, ind) => {
                 return (
-                    <Link to="/" className="footer-social-link">
+                    <Link to="/" className="footer-social-link" key={ind}>
                         <img src={image} alt="img" />
                     </Link>
                 )
