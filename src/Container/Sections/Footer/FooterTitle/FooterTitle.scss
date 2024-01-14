@@ -1,0 +1,26 @@
+@media (min-width: 320px) {
+    .footer-title {
+        margin: 20px 0px;
+
+        h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0;
+        }
+    }
+
+    .footer-sub-title p {
+        hyphens: auto;
+    }
+}
+
+@media (min-width: 1024px) {
+    .footer-title {
+        width: 100%;
+        text-align: center;
+
+        h4 {
+            font-size: 34px;
+        }
+    }
+}
