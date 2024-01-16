@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import './HeaderDropDownMenu.scss'
 
 interface Props {
     isOpenNavBar: boolean
@@ -6,12 +7,7 @@ interface Props {
 
 const HeaderDropDownMenu = ({ isOpenNavBar }: Props) => {
     return (
-        <ul
-            className="dropdown-menu"
-            style={{
-                display: isOpenNavBar ? 'block' : 'none',
-            }}
-        >
+        <ul className={`dropdown-menu ${isOpenNavBar ? 'active' : ''} `}>
             <li>
                 <Link to="/">Home</Link>
             </li>

@@ -27,8 +27,8 @@ const HeaderNavBar = (props: Props) => {
                 <button onClick={openNavBar}>
                     <img src={isOpenNavBar ? cancel : menu} alt="menu" />
                 </button>
-                <HeaderDropDownMenu isOpenNavBar={isOpenNavBar} />
             </div>
+            <HeaderDropDownMenu isOpenNavBar={isOpenNavBar} />
         </>
     )
 }

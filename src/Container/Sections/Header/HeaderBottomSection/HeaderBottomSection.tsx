@@ -6,7 +6,12 @@ interface Props {}
 
 const HeaderBottomSection = (props: Props) => {
     return (
-        <div className="header-bottom-section">
+        <div
+            className="header-bottom-section"
+            style={{
+                position: 'relative',
+            }}
+        >
             <HeaderLogo />
             <HeaderNavBar />
         </div>
