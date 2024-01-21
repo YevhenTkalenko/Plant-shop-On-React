@@ -6,10 +6,8 @@ interface Props {}
 const Header = (props: Props) => {
     return (
         <header className="header-section">
-            <div className="header-container">
-                <HeaderTopSection />
-                <HeaderBottomSection />
-            </div>
+            <HeaderTopSection />
+            <HeaderBottomSection />
         </header>
     )
 }

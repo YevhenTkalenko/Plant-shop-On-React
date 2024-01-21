@@ -1,0 +1,23 @@
+@media (min-width: 320px) {
+    .card-item > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 100px;
+    }
+
+    .card-content {
+        h2 {
+            margin: 0px;
+            text-align: center;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+}

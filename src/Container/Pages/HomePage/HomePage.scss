@@ -1,0 +1,17 @@
+@media (min-width: 320px) {
+    .home-page-title {
+        text-align: center;
+        font-size: 45px;
+        flex: 800;
+
+        span {
+            color: rgba(0, 115, 12, 1);
+        }
+    }
+
+    .home-page-sub-title {
+        text-align: center;
+        font-size: 22px;
+        font-weight: normal;
+    }
+}

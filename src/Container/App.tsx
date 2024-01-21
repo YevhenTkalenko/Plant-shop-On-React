@@ -1,12 +1,12 @@
 import { Route, Routes } from 'react-router-dom'
 import Footer from './Sections/Footer/Footer'
 import Header from './Sections/Header/Header'
-import HomePage from './Pages/HomePage'
-import ServisesPage from './Pages/ServisesPage'
+import HomePage from './Pages/HomePage/HomePage'
+import ServisesPage from './Pages/ServisesPage/ServisesPage'
+import CompanyPage from './Pages/CompanyPage/CompanyPage'
+import BlogPage from './Pages/BlogPage/BlogPage'
+import ContactsPage from './Pages/ContactsPage/ContactsPage'
 import ProjectsPage from './Pages/ProjectsPage'
-import CompanyPage from './Pages/CompanyPage'
-import BlogPage from './Pages/BlogPage'
-import ContactsPage from './Pages/ContactsPage'
 
 interface Props {}
 const App = (props: Props) => {

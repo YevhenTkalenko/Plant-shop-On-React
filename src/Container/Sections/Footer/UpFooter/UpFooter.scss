@@ -2,7 +2,7 @@
     .up-footer {
         position: absolute;
         background-color: rgba(217, 241, 224, 1);
-        width: 80%;
+        width: 70%;
         border-radius: 10px;
         left: 50%;
         transform: translate(-50%, 0%);
@@ -31,7 +31,8 @@
 @media (min-width: 1024px) {
     .up-footer {
         top: -55px;
-
+        min-width: 68%;
+        max-width: 68%;
         div {
             flex-direction: row;
             align-items: center;

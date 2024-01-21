@@ -1,0 +1,25 @@
+.header-top-laptop-links {
+    display: flex;
+
+    div {
+        display: flex;
+        align-items: center;
+
+        &:nth-child(2) {
+            margin-left: 25px;
+        }
+
+        &:nth-child(3) {
+            margin-left: 25px;
+        }
+
+        img {
+            margin-right: 10px;
+        }
+    }
+
+    span {
+        color: white;
+        font-size: 15px;
+    }
+}

@@ -1,3 +1,4 @@
+import { Container } from '@mui/material'
 import './Footer.scss'
 import FooterExtendInfo from './FooterExtendInfo/FooterExtendInfo'
 import FooterForm from './FooterForm/FooterForm'
@@ -11,7 +12,7 @@ const Footer = (props: Props) => {
     return (
         <footer className="footer-section">
             <UpFooter />
-            <div className="footer-container">
+            <Container className="footer-container">
                 <FooterTitle />
                 <FooterForm />
                 <FooterExtendInfo />
@@ -20,7 +21,7 @@ const Footer = (props: Props) => {
                     <FooterRoadMap to="/">Site map</FooterRoadMap>
                     <FooterRoadMap to="/">Terms of Use</FooterRoadMap>
                 </div>
-            </div>
+            </Container>
         </footer>
     )
 }

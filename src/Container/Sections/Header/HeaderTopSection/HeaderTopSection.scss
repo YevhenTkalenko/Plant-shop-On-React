@@ -4,8 +4,20 @@
         width: 100%;
         background-color: rgba(12, 75, 53, 1);
         height: 55px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+
+        .header-top-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .header-top-section {
+        .header-top-container {
+            width: 80%;
+            margin: 0 auto;
+        }
     }
 }
