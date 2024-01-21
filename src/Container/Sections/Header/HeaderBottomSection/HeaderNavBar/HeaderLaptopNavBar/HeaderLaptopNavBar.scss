@@ -1,0 +1,35 @@
+@media (min-width: 1024px) {
+    .header-laptop-section {
+        width: 80%;
+        margin: 0 auto;
+
+        .header-laptop-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .header-laptop-list {
+                display: flex;
+
+                li {
+                    list-style-type: none;
+                    padding: 10px;
+
+                    a {
+                        color: rgba(12, 75, 53, 1);
+                        text-decoration: none;
+                        font-weight: 700;
+                        font-size: 18px;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                    .active {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}

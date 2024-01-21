@@ -1,5 +1,4 @@
 import './HeaderBottomSection.scss'
-import HeaderLogo from './HeaderLogo/HeaderLogo'
 import HeaderNavBar from './HeaderNavBar/HeaderNavBar'
 
 interface Props {}
@@ -12,7 +11,6 @@ const HeaderBottomSection = (props: Props) => {
                 position: 'relative',
             }}
         >
-            <HeaderLogo />
             <HeaderNavBar />
         </div>
     )

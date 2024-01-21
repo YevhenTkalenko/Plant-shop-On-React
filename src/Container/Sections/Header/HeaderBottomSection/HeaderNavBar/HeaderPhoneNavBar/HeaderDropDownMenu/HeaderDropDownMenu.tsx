@@ -12,19 +12,19 @@ const HeaderDropDownMenu = ({ isOpenNavBar }: Props) => {
                 <Link to="/">Home</Link>
             </li>
             <li>
-                <Link to="/">Company</Link>
+                <Link to="/company">Company</Link>
             </li>
             <li>
-                <Link to="/">Servises</Link>
+                <Link to="/servises">Servises</Link>
             </li>
             <li>
-                <Link to="/">Projects</Link>
+                <Link to="/progects">Projects</Link>
             </li>
             <li>
-                <Link to="/">Blog</Link>
+                <Link to="/blog">Blog</Link>
             </li>
             <li>
-                <Link to="/">Contacts</Link>
+                <Link to="/contacts">Contacts</Link>
             </li>
         </ul>
     )
