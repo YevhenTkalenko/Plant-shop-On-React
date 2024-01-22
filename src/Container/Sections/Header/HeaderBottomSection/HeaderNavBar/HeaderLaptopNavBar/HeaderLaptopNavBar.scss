@@ -8,6 +8,14 @@
             justify-content: space-between;
             align-items: center;
 
+            & > div {
+                height: 80px;
+
+                img {
+                    height: 100%;
+                }
+            }
+
             .header-laptop-list {
                 display: flex;
 

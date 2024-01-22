@@ -1,11 +1,13 @@
 import { Container } from '@mui/material'
-import HomeProductList from 'Container/Components/HomePrductList/HomeProductList'
+import HomeProductList from 'Container/Components/HomeProductList/HomeProductList'
 import './HomePage.scss'
+import HomeTitle from 'Container/Sections/HomeSections/HomeTitle/HomeTitle'
 
 interface Props {}
 const HomePage = (props: Props) => {
     return (
-        <section>
+        <>
+            <HomeTitle />
             <Container>
                 <h2 className="home-page-title">
                     Servises We <span>Provided</span>
@@ -19,7 +21,7 @@ const HomePage = (props: Props) => {
                 </h5>
                 <HomeProductList />
             </Container>
-        </section>
+        </>
     )
 }
 export default HomePage

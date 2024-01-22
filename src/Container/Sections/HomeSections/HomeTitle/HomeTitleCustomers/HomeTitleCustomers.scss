@@ -1,0 +1,33 @@
+@media (min-width: 320px) {
+    .home-solution-customers {
+        display: flex;
+        justify-content: center;
+
+        .home-solution-achivment {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 7px;
+
+            .solution-achivment-item {
+                padding: 8px 10px;
+                border-radius: 32px;
+                background: linear-gradient(
+                    rgba(255, 248, 241, 1),
+                    rgba(203, 229, 206, 1)
+                );
+                height: 40px;
+                margin: 10px 0px;
+
+                span {
+                    font-size: 15px;
+                    font-weight: 800;
+
+                    &:first-child {
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
