@@ -1,21 +1,19 @@
-import { Container } from '@mui/material'
-import './HomeTitle.scss'
-import HomeTitleImg from './HomeTitleImg/HomeTitleImg'
-import HomeTitleContent from './HomeTitleContent/HomeTitleContent'
-import HomeTitleLinks from './HomeTitleLinks/HomeTitleLinks'
-import HomeTitleCustomers from './HomeTitleCustomers/HomeTitleCustomers'
+import { useEffect, useState } from 'react'
+import HomeTitlePhone from './HomeTitlePhone/HomeTitlePhone'
+import HomeTitleLaptop from './HomeTitleLaptop/HomeTitleLaptop'
 
 interface Props {}
 const HomeTitle = (props: Props) => {
-    return (
-        <section className="home-solution">
-            <HomeTitleImg />
-            <Container className="home-solution-item">
-                <HomeTitleContent />
-                <HomeTitleLinks />
-                <HomeTitleCustomers />
-            </Container>
-        </section>
-    )
+    const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth)
+
+    const handleResize = () => {
+        setWindowWidth((prevState) => (prevState = window.innerWidth))
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize)
+    }, [])
+
+    return <>{windowWidth < 1024 ? <HomeTitlePhone /> : <HomeTitleLaptop />}</>
 }
 export default HomeTitle

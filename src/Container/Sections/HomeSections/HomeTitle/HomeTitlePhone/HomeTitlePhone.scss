@@ -1,0 +1,14 @@
+@media (min-width: 320px) {
+    .home-solution {
+        display: flex;
+        flex-direction: column;
+        margin-top: 15px;
+        background-image: url('./../../../../../assets/images/HomeTitleImage/Background.svg');
+        background-size: cover;
+
+        .home-solution-item {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
