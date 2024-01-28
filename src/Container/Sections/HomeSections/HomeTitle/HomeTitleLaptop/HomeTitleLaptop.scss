@@ -6,23 +6,6 @@
         background-repeat: no-repeat;
         background-size: cover;
 
-        .out-of-container {
-            position: absolute;
-            width: 156px;
-            height: 286px;
-            top: 359px;
-            transform: translate(0, -50%);
-            left: -94px;
-            bottom: 0;
-            z-index: 1;
-
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-            }
-        }
-
         .laptop-solution-container {
             margin-top: 40px;
             display: flex;
@@ -31,72 +14,6 @@
             .laptop-solution-content {
                 width: 40%;
                 z-index: 2;
-
-                .laptop-solution-title {
-                    & > :first-child {
-                        font-weight: 800;
-
-                        &::before {
-                            content: url('../../../../../assets/images/HomeTitleImage/Flower.svg');
-                            width: 20px;
-                            height: 20px;
-                        }
-                    }
-                    h2 {
-                        font-size: 50px;
-                        font-weight: 800;
-                        margin: 8px 0px;
-
-                        span {
-                            color: green;
-                        }
-                    }
-                }
-                .laptop-solution-links {
-                    & > a {
-                        margin-left: 20px;
-                        color: green;
-                        font-weight: 800;
-                        text-decoration: none;
-                    }
-                }
-                .laptop-solution-results {
-                    display: flex;
-                    justify-content: space-between;
-                    margin-top: 25px;
-
-                    & div {
-                        display: flex;
-                        align-items: center;
-
-                        span {
-                            font-weight: 800;
-                            font-size: 15px;
-                        }
-
-                        & > :first-child span {
-                            border-radius: 50%;
-                            padding: 12px 6px;
-                            background: linear-gradient(
-                                rgb(121, 202, 129),
-                                rgba(249, 249, 249, 1)
-                            );
-                            margin-right: 10px;
-                            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-                        }
-                    }
-                }
-            }
-
-            .laptop-solution-logo {
-                width: 60%;
-                align-self: flex-end;
-                margin-left: 24px;
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
             }
         }
     }

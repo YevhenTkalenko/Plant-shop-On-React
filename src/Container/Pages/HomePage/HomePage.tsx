@@ -2,6 +2,9 @@ import { Container } from '@mui/material'
 import HomeProductList from 'Container/Components/HomeProductList/HomeProductList'
 import './HomePage.scss'
 import HomeTitle from 'Container/Sections/HomeSections/HomeTitle/HomeTitle'
+import HomeExpierence from 'Container/Sections/HomeSections/HomeExperience/HomeExpierence'
+import HomeChoseUs from 'Container/Sections/HomeSections/HomeChoseUs/HomeChoseUs'
+import HomeQuestions from 'Container/Sections/HomeSections/HomeQuestions/HomeQuestions'
 
 interface Props {}
 const HomePage = (props: Props) => {
@@ -20,6 +23,11 @@ const HomePage = (props: Props) => {
                     cum?
                 </h5>
                 <HomeProductList />
+                <HomeExpierence />
+            </Container>
+            <HomeChoseUs />
+            <Container>
+                <HomeQuestions />
             </Container>
         </>
     )

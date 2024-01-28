@@ -1,0 +1,23 @@
+@media (min-width: 320px) {
+    .home-expierence-title {
+        h3 {
+            font-size: 28px;
+            font-weight: 800;
+            text-align: center;
+
+            & span {
+                color: green;
+            }
+        }
+
+        p {
+            hyphens: auto;
+        }
+    }
+}
+
+@media (min-width: 320px) {
+    .home-expierence-title {
+        width: 100%;
+    }
+}

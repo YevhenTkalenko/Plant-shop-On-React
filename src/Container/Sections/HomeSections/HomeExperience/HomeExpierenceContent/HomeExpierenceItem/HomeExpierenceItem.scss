@@ -1,0 +1,17 @@
+.home-expierence-card {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+
+    &:hover {
+        background-color: rgb(244, 244, 244);
+    }
+
+    & > a {
+        text-decoration: none;
+        color: greens;
+    }
+}

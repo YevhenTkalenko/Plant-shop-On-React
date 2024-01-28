@@ -6,7 +6,7 @@ import ServisesPage from './Pages/ServisesPage/ServisesPage'
 import CompanyPage from './Pages/CompanyPage/CompanyPage'
 import BlogPage from './Pages/BlogPage/BlogPage'
 import ContactsPage from './Pages/ContactsPage/ContactsPage'
-import ProjectsPage from './Pages/ProjectsPage'
+import ProjectsPage from './Pages/ProjectsPage/ProjectsPage'
 
 interface Props {}
 const App = (props: Props) => {

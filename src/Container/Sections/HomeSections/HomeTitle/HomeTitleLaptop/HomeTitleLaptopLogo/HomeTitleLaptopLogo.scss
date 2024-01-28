@@ -1,0 +1,12 @@
+@media (min-width: 1024px) {
+    .laptop-solution-logo {
+        width: 60%;
+        align-self: flex-end;
+        margin-left: 24px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}

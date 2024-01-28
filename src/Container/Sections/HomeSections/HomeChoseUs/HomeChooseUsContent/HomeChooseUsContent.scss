@@ -1,0 +1,35 @@
+@media (min-width: 320px) {
+    .choose-us-content {
+        color: white;
+        padding: 25px;
+
+        h3 {
+            margin: 0px 0px 8px;
+            text-align: center;
+            font-size: 40px;
+        }
+
+        .choose-us-tags {
+            display: flex;
+            flex-wrap: wrap;
+
+            & div {
+                width: calc(50% - 5px);
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+
+                & svg {
+                    border-radius: 50%;
+                    border: 1px solid white;
+                    margin-right: 5px;
+                }
+            }
+        }
+
+        .choose-us-button {
+            text-align: center;
+            margin-top: 15px;
+        }
+    }
+}
