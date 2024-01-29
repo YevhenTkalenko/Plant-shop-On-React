@@ -1,0 +1,24 @@
+@media (min-width: 320px) {
+    .home-questions-logo {
+        display: none;
+    }
+
+    .home-questions-content {
+        width: 100%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .home-questions-container {
+        display: flex;
+
+        .home-questions-logo {
+            padding-top: 120px;
+            display: block;
+        }
+
+        .home-questions-content {
+            width: 50%;
+        }
+    }
+}
