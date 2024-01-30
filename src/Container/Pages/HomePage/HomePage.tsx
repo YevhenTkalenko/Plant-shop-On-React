@@ -5,6 +5,7 @@ import HomeTitle from 'Container/Sections/HomeSections/HomeTitle/HomeTitle'
 import HomeExpierence from 'Container/Sections/HomeSections/HomeExperience/HomeExpierence'
 import HomeChoseUs from 'Container/Sections/HomeSections/HomeChoseUs/HomeChoseUs'
 import HomeQuestions from 'Container/Sections/HomeSections/HomeQuestions/HomeQuestions'
+import HomeStaff from 'Container/Sections/HomeSections/HomeStaff/HomeStaff'
 
 interface Props {}
 const HomePage = (props: Props) => {
@@ -28,6 +29,7 @@ const HomePage = (props: Props) => {
             <HomeChoseUs />
             <Container>
                 <HomeQuestions />
+                <HomeStaff />
             </Container>
         </>
     )
