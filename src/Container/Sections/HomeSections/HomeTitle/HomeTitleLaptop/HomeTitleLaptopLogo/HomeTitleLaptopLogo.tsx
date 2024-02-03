@@ -1,4 +1,4 @@
-import titleImg from 'assets/images/HomeTitleImage/Laptop/Img.svg'
+import titleImg from 'assets/images/HomeTitleImage/Laptop/HomeTitleLp.png'
 import './HomeTitleLaptopLogo.scss'
 
 interface Props {}

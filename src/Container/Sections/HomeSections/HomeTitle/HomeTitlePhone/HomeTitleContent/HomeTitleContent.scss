@@ -1,7 +1,9 @@
+@import '../../../../../Global/SCSS/mixins';
+@import '../../../../../Global/SCSS/variables';
+
 @media (min-width: 320px) {
     .flower-title {
-        font-size: 14px;
-        font-weight: 700;
+        @include main_Title_Style_Phone_3;
 
         &::before {
             content: url('../../../../../../assets/images/HomeTitleImage/Flower.svg');
@@ -10,12 +12,11 @@
         }
     }
     h4 {
-        font-size: 25px;
-        font-weight: 800;
+        @include main_Title_Style_Phone_4;
         margin: 5px 0px;
 
         span {
-            color: green;
+            color: $mainColorForButtonsAndTitle;
         }
     }
     p {

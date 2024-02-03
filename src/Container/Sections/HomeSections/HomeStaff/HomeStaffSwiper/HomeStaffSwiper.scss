@@ -1,3 +1,6 @@
+@import '../../../../Global/SCSS/mixins';
+@import '../../../../Global/SCSS/variables';
+
 @media (min-width: 320px) {
     .swiper {
         width: 100%;
@@ -6,16 +9,8 @@
     }
 
     .swiper-slide {
-        text-align: center;
-        font-size: 18px;
-        background: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+        @include main_Title_Style_Phone_2;
 
-    .swiper-slide {
-        height: 95%;
         .slide-item {
             position: relative;
             img {
@@ -24,7 +19,7 @@
 
             .slide-item-description {
                 height: 80px;
-                background-color: green;
+                background-color: $mainColorForButtonsAndTitle;
                 opacity: 50%;
                 position: absolute;
                 left: 0;
@@ -32,22 +27,19 @@
                 border-top-right-radius: 20px;
                 border-top-left-radius: 20px;
                 width: 100%;
-                text-align: center;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
+                @include display_Direction_Center_Column;
 
                 p {
-                    color: white;
+                    color: $mainColorForLinksAndText;
                     margin: 0;
-                    font-weight: 800;
+                    font-weight: $mainFontWeight_800;
                 }
             }
         }
     }
 
     .swiper-pagination-bullet {
-        background-color: green !important;
+        background-color: $mainColorForButtonsAndTitle !important;
     }
 
     .swiper-pagination-bullet-active {

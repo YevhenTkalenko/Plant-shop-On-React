@@ -1,7 +1,10 @@
+@import '../../../../../Global/SCSS/mixins';
+@import '../../../../../Global/SCSS/variables';
+
 @media (min-width: 1024px) {
     .laptop-solution-title {
         & > :first-child {
-            font-weight: 800;
+            font-weight: $mainFontWeight_800;
 
             &::before {
                 content: url('../../../../../../assets/images/HomeTitleImage/Flower.svg');
@@ -10,12 +13,11 @@
             }
         }
         h2 {
-            font-size: 50px;
-            font-weight: 800;
+            @include main_Title_Style_Laptop_2;
             margin: 8px 0px;
 
             span {
-                color: green;
+                color: $mainColorForButtonsAndTitle;
             }
         }
     }

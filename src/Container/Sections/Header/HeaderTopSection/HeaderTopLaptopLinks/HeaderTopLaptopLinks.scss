@@ -1,3 +1,6 @@
+@import '../../../../Global/SCSS/mixins';
+@import '../../../../Global/SCSS/variables';
+
 .header-top-laptop-links {
     display: flex;
 
@@ -19,7 +22,7 @@
     }
 
     span {
-        color: white;
-        font-size: 15px;
+        color: $mainColorForLinksAndText;
+        font-size: $mainFontSizeForListItem_16px;
     }
 }

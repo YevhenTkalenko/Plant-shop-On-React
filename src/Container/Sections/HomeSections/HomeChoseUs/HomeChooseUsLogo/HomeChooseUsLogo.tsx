@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import whyChooseUsImage from 'assets/images/HomeChooseUs/Phone/young-woman-taking-care-her-plants.svg'
+import whyChooseUsImage from 'assets/images/HomeChooseUs/Phone/young-woman-taking-care-her-plants.png'
 import './HomeChooseUsLogo.scss'
 
-import whyChooseUsImageLapTop from 'assets/images/HomeChooseUs/Laptop/young-woman-taking-care-her-plants.svg'
+import whyChooseUsImageLapTop from 'assets/images/HomeChooseUs/Laptop/HomeChooseUsLP.png'
 
 interface Props {}
 const HomeChooseUsLogo = (props: Props) => {

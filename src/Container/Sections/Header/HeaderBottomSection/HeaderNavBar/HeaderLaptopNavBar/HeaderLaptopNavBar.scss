@@ -1,12 +1,13 @@
+@import '../../../../../Global/SCSS/mixins';
+@import '../../../../../Global/SCSS/variables';
+
 @media (min-width: 1024px) {
     .header-laptop-section {
         width: 80%;
         margin: 0 auto;
 
         .header-laptop-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            @include display_Center_Space_Between;
 
             & > div {
                 height: 80px;
@@ -24,10 +25,10 @@
                     padding: 10px;
 
                     a {
-                        color: rgba(12, 75, 53, 1);
+                        color: $mainColorForBackground;
                         text-decoration: none;
-                        font-weight: 700;
-                        font-size: 18px;
+                        font-weight: $mainFontWeight_700;
+                        font-size: $mainFontSizeForListItem_18px;
 
                         &:hover {
                             text-decoration: underline;

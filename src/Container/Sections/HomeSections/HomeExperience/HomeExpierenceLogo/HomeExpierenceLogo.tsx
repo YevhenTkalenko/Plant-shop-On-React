@@ -1,6 +1,6 @@
 import './HomeExpierenceLogo.scss'
-import bigPhoneImg from 'assets/images/HomeExpierenceImage/Phone/medium-shot-man-looking-plant.svg'
-import bigLaptopImg from 'assets/images/HomeExpierenceImage/Laptop/medium-shot-man-looking-plant.svg'
+import bigPhoneImg from 'assets/images/HomeExpierenceImage/Phone/medium-shot-man-looking-plant.png'
+import bigLaptopImg from 'assets/images/HomeExpierenceImage/Laptop/HomeExpierLP.png'
 import { useEffect, useState } from 'react'
 
 interface Props {}

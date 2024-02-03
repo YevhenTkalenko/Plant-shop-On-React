@@ -1,7 +1,9 @@
+@import '../../Global/SCSS/variables';
+
 @media (min-width: 320px) {
     .footer-section {
-        background-color: rgba(12, 75, 53, 1);
-        color: rgba(255, 255, 255, 1);
+        background-color: $mainColorForBackground;
+        color: $mainColorForLinksAndText;
         position: relative;
         margin-top: 160px;
     }
@@ -22,8 +24,6 @@
     .footer-container {
         display: flex;
         flex-wrap: wrap;
-        width: 80%;
-        margin: 0 auto;
 
         .footer-down-links {
             justify-content: center;

@@ -1,7 +1,7 @@
-import team_1 from 'assets/images/HomeStaff/team-1.svg'
-import team_2 from 'assets/images/HomeStaff/team-2.svg'
-import team_3 from 'assets/images/HomeStaff/team-3.svg'
-import team_4 from 'assets/images/HomeStaff/team-4.svg'
+import team_1 from 'assets/images/HomeStaff/team_1.png'
+import team_2 from 'assets/images/HomeStaff/team-4.png'
+import team_3 from 'assets/images/HomeStaff/team-3.png'
+import team_4 from 'assets/images/HomeStaff/team_2.png'
 
 interface HomeStaffI {
     id: number,

@@ -1,12 +1,14 @@
+@import '../../../../../Global/SCSS/mixins';
+@import '../../../../../Global/SCSS/variables';
+
 @media (min-width: 320px) {
     .home-expierence-title {
         h3 {
-            font-size: 28px;
-            font-weight: 800;
+            @include main_Title_Style_Phone_4;
             text-align: center;
 
             & span {
-                color: green;
+                color: $mainColorForButtonsAndTitle;
             }
         }
 

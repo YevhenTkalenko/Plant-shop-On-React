@@ -1,8 +1,10 @@
+@import '../../../Global/SCSS/variables';
+
 @media (min-width: 320px) {
     .header-top-section {
         padding: 15px;
         width: 100%;
-        background-color: rgba(12, 75, 53, 1);
+        background-color: $mainColorForBackground;
         height: 55px;
 
         .header-top-container {

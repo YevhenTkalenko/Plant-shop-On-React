@@ -1,4 +1,4 @@
-import flower from 'assets/images/HomeTitleImage/yobanuyFikus.svg'
+import flower from 'assets/images/HomeTitleImage/yobanyi_fikus.png'
 import './HomeTitleLaptopImg.scss'
 
 interface Props {}

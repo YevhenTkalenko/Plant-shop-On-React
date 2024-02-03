@@ -1,9 +1,9 @@
+@import '../../../../../Global/SCSS/mixins';
+@import '../../../../../Global/SCSS/variables';
+
 .home-expierence-card {
     cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include display_Direction_Center_Column;
     padding: 5px;
 
     &:hover {
@@ -12,6 +12,6 @@
 
     & > a {
         text-decoration: none;
-        color: greens;
+        color: $mainColorForButtonsAndTitle;
     }
 }

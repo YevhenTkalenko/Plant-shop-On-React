@@ -1,3 +1,6 @@
+@import '../../../Global/SCSS/mixins';
+@import '../../../Global/SCSS/variables';
+
 @media (min-width: 320px) {
     .up-footer {
         position: absolute;
@@ -11,18 +14,16 @@
         div {
             padding: 10px;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            @include display_Direction_Center_Column;
         }
 
         h2 {
             color: black;
-            font-size: 18px;
+            font-size: $mainFontSizeForListItem_18px;
             text-align: center;
 
             span {
-                color: green;
+                color: $mainColorForButtonsAndTitle;
             }
         }
     }
@@ -34,15 +35,12 @@
         min-width: 68%;
         max-width: 68%;
         div {
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
+            @include display_Direction_Center_Row;
             height: 70px;
         }
 
         h2 {
-            font-size: 30px;
-            font-weight: 800;
+            @include main_Title_Style_Laptop_1;
             margin: 0;
             margin-right: 55px;
         }

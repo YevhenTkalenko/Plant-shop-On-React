@@ -1,9 +1,8 @@
+@import '../../../../Global/SCSS/variables';
+
 @media (min-width: 320px) {
     .home-question-accordion-item {
-        color: white;
-        background-color: green;
-        svg {
-            color: white;
-        }
+        color: $mainColorForLinksAndText;
+        background-color: $mainColorForButtonsAndTitle;
     }
 }

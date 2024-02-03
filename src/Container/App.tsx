@@ -13,7 +13,6 @@ const App = (props: Props) => {
     return (
         <>
             <Header />
-
             <Routes>
                 <Route path="/" element={<HomePage />}></Route>
                 <Route path="/servises" element={<ServisesPage />}></Route>

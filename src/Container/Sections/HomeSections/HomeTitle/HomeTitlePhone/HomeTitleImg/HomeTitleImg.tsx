@@ -1,4 +1,4 @@
-import solutionImg from 'assets/images/HomeTitleImage/medium-shot-woman-holding-plant-pots.svg'
+import solutionImg from 'assets/images/HomeTitleImage/medium-shot-woman-holding-plant-pots.png'
 import './HomeTitleImg.scss'
 
 const HomeTitleImg = () => {

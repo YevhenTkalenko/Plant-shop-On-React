@@ -1,9 +1,10 @@
+@import '../../../Global/SCSS/mixins';
+
 @media (min-width: 320px) {
     .header-bottom-section {
-        display: flex;
+        @include display_Space_Between;
         height: 70px;
         padding: 15px;
-        justify-content: space-between;
     }
 }
 

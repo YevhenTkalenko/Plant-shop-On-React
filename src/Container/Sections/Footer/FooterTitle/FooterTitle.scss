@@ -1,10 +1,12 @@
+@import '../../../Global/SCSS/mixins';
+@import '../../../Global/SCSS/variables';
+
 @media (min-width: 320px) {
     .footer-title {
         margin: 20px 0px;
 
         h4 {
-            font-size: 18px;
-            font-weight: 700;
+            @include main_Title_Style_Phone_1;
             margin: 0;
         }
     }
@@ -17,10 +19,9 @@
 @media (min-width: 1024px) {
     .footer-title {
         width: 100%;
-        text-align: center;
 
         h4 {
-            font-size: 34px;
+            font-size: $mainFontSizeForTitle_50px;
         }
     }
 }

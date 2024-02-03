@@ -1,30 +1,32 @@
+@import '../../../Global/SCSS/variables';
+@import '../../../Global/SCSS/mixins';
+
 @media (min-width: 320px) {
     .footer-form {
         .form-container {
             width: 100%;
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px solid white;
+            @include display_Space_Between;
+            border-bottom: 1px solid $mainColorForLinksAndText;
 
             input {
                 background: none;
                 border: none;
-                color: white;
+                color: $mainColorForLinksAndText;
                 outline: none;
                 overflow: auto;
 
                 &::placeholder {
-                    color: white;
-                    font-size: 16px;
+                    color: $mainColorForLinksAndText;
+                    font-size: $mainFontSizeForListItem_16px;
                 }
             }
 
             button {
                 background: none;
-                color: white;
+                color: $mainColorForLinksAndText;
                 border: none;
                 cursor: pointer;
-                font-size: 16px;
+                font-size: $mainFontSizeForListItem_16px;
             }
         }
     }

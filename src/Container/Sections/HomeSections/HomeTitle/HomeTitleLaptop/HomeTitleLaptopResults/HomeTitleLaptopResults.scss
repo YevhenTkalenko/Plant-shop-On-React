@@ -1,7 +1,9 @@
+@import '../../../../../Global/SCSS/mixins';
+@import '../../../../../Global/SCSS/variables';
+
 @media (min-width: 1024px) {
     .laptop-solution-results {
-        display: flex;
-        justify-content: space-between;
+        @include display_Space_Between;
         margin-top: 25px;
 
         & div {
@@ -9,8 +11,7 @@
             align-items: center;
 
             span {
-                font-weight: 800;
-                font-size: 15px;
+                @include main_Style_For_Links_Span;
             }
 
             & > :first-child span {

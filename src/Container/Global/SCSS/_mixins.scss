@@ -1,0 +1,101 @@
+@import '../SCSS/variables';
+
+//PHONE
+
+//1)Display
+@mixin display_Direction_Center_Column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+//2)Title Styles
+@mixin main_Title_Style_Phone_1 {
+    font-size: $mainFontSizeForTitle_35px;
+    font-weight: $mainFontWeight_800;
+    text-align: center;
+}
+
+@mixin main_Title_Style_Phone_2 {
+    font-size: $mainFontSizeForListItem_18px;
+    font-weight: $mainFontWeight_700;
+    text-align: center;
+}
+
+@mixin main_Title_Style_Phone_3 {
+    font-size: $mainFontSizeForListItem_18px;
+    font-weight: $mainFontWeight_700;
+}
+
+@mixin main_Title_Style_Phone_4 {
+    font-size: $mainFontSizeForTitle_35px;
+    font-weight: $mainFontWeight_800;
+}
+
+// <----------------------------------------------------------------------------------------------->
+// <----------------------------------------------------------------------------------------------->
+// <----------------------------------------------------------------------------------------------->
+
+//LAPTOP
+
+//1)Display
+
+@mixin display_Direction_Center_Row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+@mixin display_Space_Between {
+    display: flex;
+    justify-content: space-between;
+}
+
+@mixin display_Center_Space_Between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+//2)Title Styles
+
+@mixin main_Title_Style_Laptop_1 {
+    font-size: $mainFontSizeForTitle_35px;
+    font-weight: $mainFontWeight_800;
+}
+
+@mixin main_Title_Style_Laptop_2 {
+    font-size: $mainFontSizeForTitle_50px;
+    font-weight: $mainFontWeight_800;
+}
+
+@mixin main_Title_Style_Laptop_3 {
+    font-size: $mainFontSizeForTitle_22px;
+    font-weight: $mainFontWeight_800;
+}
+
+// <----------------------------------------------------------------------------------------------->
+// <----------------------------------------------------------------------------------------------->
+// <----------------------------------------------------------------------------------------------->
+
+//Universal styles
+
+//Links Styles
+@mixin main_Style_For_Links_White {
+    color: $mainColorForLinksAndText;
+    text-decoration: none;
+    font-size: $mainFontSizeForListItem_14px;
+}
+
+@mixin main_Style_For_Links_Green {
+    color: $mainColorForButtonsAndTitle;
+    text-decoration: none;
+    font-size: $mainFontSizeForListItem_14px;
+}
+
+@mixin main_Style_For_Links_Span {
+    font-weight: $mainFontWeight_800;
+    font-size: $mainFontSizeForListItem_16px;
+}
