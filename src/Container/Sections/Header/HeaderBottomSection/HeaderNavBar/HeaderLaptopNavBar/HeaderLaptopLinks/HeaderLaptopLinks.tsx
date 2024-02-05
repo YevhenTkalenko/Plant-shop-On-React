@@ -8,9 +8,6 @@ const HeaderLaptopLinks = (props: Props) => {
                 <NavLink to="/">Home</NavLink>
             </li>
             <li>
-                <NavLink to="/company">Company</NavLink>
-            </li>
-            <li>
                 <NavLink to="/servises">Servises</NavLink>
             </li>
             <li>
@@ -21,6 +18,9 @@ const HeaderLaptopLinks = (props: Props) => {
             </li>
             <li>
                 <NavLink to="/contacts">Contacts</NavLink>
+            </li>
+            <li>
+                <NavLink to="/cart">Cart</NavLink>
             </li>
         </ul>
     )

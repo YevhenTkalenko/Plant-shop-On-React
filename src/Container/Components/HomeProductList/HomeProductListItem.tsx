@@ -1,15 +1,21 @@
 import { Button, Card, CardActions, CardContent } from '@mui/material'
 import './HomeProductListItem.scss'
 import { Link } from 'react-router-dom'
+import UniversalButtonLink from 'Container/Components/UniversalComponents/Buttons/UniversalButtonLink'
 
 interface Props {
     image: string
     title: string
-    description: string
+    shortDescription: string
     link: string
 }
 
-const HomeProductListItem = ({ image, title, description, link }: Props) => {
+const HomeProductListItem = ({
+    image,
+    title,
+    shortDescription,
+    link,
+}: Props) => {
     return (
         <>
             <Card className="card-item">
@@ -18,16 +24,16 @@ const HomeProductListItem = ({ image, title, description, link }: Props) => {
                 </div>
                 <CardContent className="card-content">
                     <h2>{title}</h2>
-                    <p>{description}</p>
+                    <p>{shortDescription}</p>
                 </CardContent>
                 <CardActions
                     style={{
                         justifyContent: 'center',
                     }}
                 >
-                    <Button variant="contained" color="success">
-                        <Link to={link}>View more</Link>
-                    </Button>
+                    <UniversalButtonLink to={link}>
+                        View More
+                    </UniversalButtonLink>
                 </CardActions>
             </Card>
         </>

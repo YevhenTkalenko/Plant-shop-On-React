@@ -4,9 +4,15 @@ import HeaderTopPhoneLinks from './HeaderTopPhoneLinks/HeaderTopPhoneLinks'
 import './HeaderTopSection.scss'
 import HeaderTopLaptopLinks from './HeaderTopLaptopLinks/HeaderTopLaptopLinks'
 import { Container } from '@mui/material'
+import CartHeader from 'Container/Components/CartHeader/CartHeader'
 
-interface Props {}
-const HeaderTopSection = (props: Props) => {
+interface Props {
+    ProductsInCart: {
+        [id: number]: number
+    }
+}
+
+const HeaderTopSection = ({ ProductsInCart }: Props) => {
     const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth)
 
     const handleResize = () => {
@@ -28,6 +34,7 @@ const HeaderTopSection = (props: Props) => {
                     <HeaderTopPhoneLinks />
                 )}
                 <HeaderLang />
+                <CartHeader ProductsInCart={ProductsInCart} />
             </Container>
         </div>
     )

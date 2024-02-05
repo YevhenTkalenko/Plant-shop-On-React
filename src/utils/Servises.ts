@@ -7,71 +7,122 @@ import brancCutting from '../assets/images/ServisesImage/Branchcutting.svg'
 import petsControl from '../assets/images/ServisesImage/PestsWeedsControl.svg'
 import waterIrrigation from '../assets/images/ServisesImage/WateringIrrigation.svg'
 
-interface ProductI {
+export interface ProductI {
     id: number,
+    addId: string,
     image: string,
     title: string,
-    description: string
-    link: string
+    shortDescription: string,
+    fullDesctiption: string,
+    link: string,
+    price: number,
+    duration: number,
+    countOfSpecialists: number
 }
 
 const PRODUCT: ProductI[] = [
     {
         id: 1,
+        addId: 'section1',
         image: treePlanting,
         title: 'Tree Planting',
-        description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis',
-        link: ''
+        shortDescription: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis',
+        fullDesctiption: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendisLorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis',
+        link: '/servises',
+        price: 150,
+        duration: 2,
+        countOfSpecialists: 1
     },
     {
         id: 2,
+        addId: 'section2',
         image: grassCutting,
         title: 'Grass Cutting',
-        description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis',
-        link: ''
+        shortDescription: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis',
+        fullDesctiption: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendisLorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis',
+        link: '/servises#section2',
+        price: 50,
+        duration: 1,
+        countOfSpecialists: 2
     },
     {
         id: 3,
+        addId: 'section3',
         image: gardenDisign,
         title: 'Garden Design',
-        description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis',
-        link: ''
+        shortDescription: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis',
+        fullDesctiption: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendisLorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis',
+        link: '/servises#section3',
+        price: 80,
+        duration: 3,
+        countOfSpecialists: 3
     },
     {
         id: 4,
+        addId: 'section4',
         image: plantGrowing,
         title: 'Plant Growing',
-        description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis',
-        link: ''
+        shortDescription: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis',
+        fullDesctiption: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendisLorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis',
+        link: '/servises#section4',
+        price: 170,
+        duration: 2.30,
+        countOfSpecialists: 1
     },
     {
         id: 5,
+        addId: '#section5',
         image: flowerScaping,
         title: 'Flower Scaping',
-        description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis',
-        link: ''
+        shortDescription: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis',
+        fullDesctiption: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendisLorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis',
+        link: '/servises#section5',
+        price: 30,
+        duration: 1.30,
+        countOfSpecialists: 2
     },
     {
         id: 6,
+        addId: 'section6',
         image: brancCutting,
         title: 'Branch Cutting',
-        description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis',
-        link: ''
+        shortDescription: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis',
+        fullDesctiption: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendisLorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis',
+        link: '/servises#section6',
+        price: 170,
+        duration: 1,
+        countOfSpecialists: 1
     },
     {
         id: 7,
+        addId: 'section7',
         image: petsControl,
         title: 'Pets Control',
-        description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis',
-        link: ''
+        shortDescription: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis',
+        fullDesctiption: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendisLorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis',
+        link: '/servises#section7',
+        price: 450,
+        duration: 2.5,
+        countOfSpecialists: 4
     },
     {
         id: 8,
+        addId: 'section8',
         image: waterIrrigation,
         title: 'Water & Irrigation',
-        description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis',
-        link: ''
+        shortDescription: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis',
+        fullDesctiption: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendisLorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis',
+        link: `/servises#section8`,
+        price: 300,
+        duration: 5,
+        countOfSpecialists: 2
     },
 ]
+
+
+export const getProductsObject = (array: ProductI[]) => array.reduce((object, product) => ({
+    ...object,
+    [product.id]: product
+}), {})
 
 export default PRODUCT

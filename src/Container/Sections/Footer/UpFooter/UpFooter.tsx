@@ -1,6 +1,5 @@
-import { Button } from '@mui/material'
-import { NavLink } from 'react-router-dom'
 import './UpFooter.scss'
+import UniversalButtonLink from 'Container/Components/UniversalComponents/Buttons/UniversalButtonLink'
 
 interface Props {}
 const UpFooter = (props: Props) => {
@@ -10,9 +9,7 @@ const UpFooter = (props: Props) => {
                 <h2>
                     We Have <span>Solutions</span> For Your <span>Garden</span>
                 </h2>
-                <Button color="success" variant="contained">
-                    <NavLink to="/">Get A Quate</NavLink>
-                </Button>
+                <UniversalButtonLink to=""> GET A QUATE</UniversalButtonLink>
             </div>
         </div>
     )

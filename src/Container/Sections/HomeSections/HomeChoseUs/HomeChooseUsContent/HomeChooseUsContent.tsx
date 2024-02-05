@@ -2,6 +2,7 @@ import { Button } from '@mui/material'
 import { Link } from 'react-router-dom'
 import './HomeChooseUsContent.scss'
 import CheckIcon from '@mui/icons-material/Check'
+import UniversalButtonLink from 'Container/Components/UniversalComponents/Buttons/UniversalButtonLink'
 
 interface Props {}
 const HomeChooseUsContent = (props: Props) => {
@@ -29,9 +30,7 @@ const HomeChooseUsContent = (props: Props) => {
                 </div>
             </div>
             <div className="choose-us-button">
-                <Button color="success" variant="contained">
-                    <Link to="">Discover More</Link>
-                </Button>
+                <UniversalButtonLink to=""> DISCOVER MORE</UniversalButtonLink>
             </div>
         </div>
     )

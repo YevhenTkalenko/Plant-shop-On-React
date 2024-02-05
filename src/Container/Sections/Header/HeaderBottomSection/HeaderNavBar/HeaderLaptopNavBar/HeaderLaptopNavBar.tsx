@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom'
 import HeaderLogo from '../../HeaderLogo/HeaderLogo'
-import { Button, Container } from '@mui/material'
+import { Container } from '@mui/material'
 import './HeaderLaptopNavBar.scss'
 import HeaderLaptopLinks from './HeaderLaptopLinks/HeaderLaptopLinks'
+import UniversalButtonLink from 'Container/Components/UniversalComponents/Buttons/UniversalButtonLink'
 
 interface Props {}
 const HeaderLaptopNavBar = (props: Props) => {
@@ -11,9 +11,7 @@ const HeaderLaptopNavBar = (props: Props) => {
             <Container className="header-laptop-container">
                 <HeaderLogo />
                 <HeaderLaptopLinks />
-                <Button color="success" variant="contained">
-                    <Link to="/">Call Us</Link>
-                </Button>
+                <UniversalButtonLink to="">Call Us</UniversalButtonLink>
             </Container>
         </div>
     )

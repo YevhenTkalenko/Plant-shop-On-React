@@ -1,6 +1,7 @@
 import { Button } from '@mui/material'
 import './HomeStaffTitle.scss'
 import { Link } from 'react-router-dom'
+import UniversalButtonLink from 'Container/Components/UniversalComponents/Buttons/UniversalButtonLink'
 
 interface Props {}
 const HomeStaffTitle = (props: Props) => {
@@ -17,9 +18,7 @@ const HomeStaffTitle = (props: Props) => {
                 nostrum odio.
             </p>
             <div>
-                <Button color="success" variant="contained">
-                    <Link to="">Discover More</Link>
-                </Button>
+                <UniversalButtonLink to="">DISCOVER MORE</UniversalButtonLink>
             </div>
         </div>
     )

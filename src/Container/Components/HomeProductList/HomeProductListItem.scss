@@ -1,3 +1,5 @@
+@import '../../Global/SCSS/mixins';
+
 @media (min-width: 320px) {
     .card-item {
         &:hover {
@@ -5,10 +7,7 @@
         }
 
         & > div {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
+            @include display_Direction_Center_Column;
             height: 100px;
         }
     }

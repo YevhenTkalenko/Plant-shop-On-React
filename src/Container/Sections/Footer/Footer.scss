@@ -1,4 +1,5 @@
 @import '../../Global/SCSS/variables';
+@import '../../Global/SCSS/mixins';
 
 @media (min-width: 320px) {
     .footer-section {
@@ -12,8 +13,7 @@
         padding-top: 40px;
 
         .footer-down-links {
-            display: flex;
-            justify-content: space-between;
+            @include display_Space_Between;
             margin-top: 15px;
             width: 100%;
         }

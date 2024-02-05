@@ -1,0 +1,75 @@
+@import '../../Global/SCSS/mixins';
+
+@media (min-width: 320px) {
+    .servises-item-container {
+        @include display_Direction_Center_Column;
+        flex-wrap: wrap;
+        padding: 10px;
+
+        .servises-item-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+
+            span {
+                @include main_Title_Style_Laptop_3;
+                margin-left: 15px;
+            }
+        }
+
+        .servises-item-subtitle {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            span {
+                @include main_Title_Style_Phone_3;
+                margin-right: 7px;
+            }
+            & div:nth-child(1) {
+                margin-bottom: 10px;
+            }
+        }
+
+        .servises-item-input {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            button {
+                margin: 0px 10px;
+            }
+        }
+
+        .servises-item-button {
+            margin-top: 15px;
+
+            span {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                svg {
+                    object-fit: cover;
+                    border: 2px solid green;
+                    color: green;
+                    border-radius: 50%;
+                    margin-top: 5px;
+                    font-size: 35px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .servises-item-container {
+        .servises-item-subtitle {
+            justify-content: center;
+
+            & div {
+                margin: 0px 15px;
+            }
+        }
+    }
+}

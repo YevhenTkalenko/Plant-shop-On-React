@@ -5,12 +5,12 @@
         padding: 15px;
         width: 100%;
         background-color: $mainColorForBackground;
-        height: 55px;
 
         .header-top-container {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 0;
         }
     }
 }
@@ -20,6 +20,8 @@
         .header-top-container {
             width: 80%;
             margin: 0 auto;
+            padding-left: 24px;
+            padding-right: 24px;
         }
     }
 }

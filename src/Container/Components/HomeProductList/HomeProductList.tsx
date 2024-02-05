@@ -8,18 +8,20 @@ const HomeProductList = (props: Props) => {
     return (
         <>
             <Grid container spacing={2}>
-                {PRODUCT.map(({ id, image, title, description, link }) => {
-                    return (
-                        <Grid item key={id} xs={12} sm={6} md={4}>
-                            <HomeProductListItem
-                                image={image}
-                                title={title}
-                                description={description}
-                                link={link}
-                            />
-                        </Grid>
-                    )
-                })}
+                {PRODUCT.map(
+                    ({ id, image, title, shortDescription, link, addId }) => {
+                        return (
+                            <Grid item key={id} xs={12} sm={6} md={4}>
+                                <HomeProductListItem
+                                    image={image}
+                                    title={title}
+                                    shortDescription={shortDescription}
+                                    link={link}
+                                />
+                            </Grid>
+                        )
+                    }
+                )}
             </Grid>
         </>
     )

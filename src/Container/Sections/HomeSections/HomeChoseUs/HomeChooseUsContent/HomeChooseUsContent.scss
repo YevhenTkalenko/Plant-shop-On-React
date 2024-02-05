@@ -2,7 +2,6 @@
     .choose-us-content {
         color: white;
         padding: 25px;
-
         h3 {
             margin: 0px 0px 8px;
             text-align: center;
@@ -31,5 +30,11 @@
             text-align: center;
             margin-top: 15px;
         }
+    }
+}
+
+@media (min-width: 1024px) {
+    .choose-us-content {
+        width: 50%;
     }
 }

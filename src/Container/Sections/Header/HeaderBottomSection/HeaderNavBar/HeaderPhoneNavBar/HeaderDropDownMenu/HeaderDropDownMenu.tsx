@@ -12,9 +12,6 @@ const HeaderDropDownMenu = ({ isOpenNavBar }: Props) => {
                 <Link to="/">Home</Link>
             </li>
             <li>
-                <Link to="/company">Company</Link>
-            </li>
-            <li>
                 <Link to="/servises">Servises</Link>
             </li>
             <li>
@@ -25,6 +22,9 @@ const HeaderDropDownMenu = ({ isOpenNavBar }: Props) => {
             </li>
             <li>
                 <Link to="/contacts">Contacts</Link>
+            </li>
+            <li>
+                <Link to="/cart">Cart</Link>
             </li>
         </ul>
     )
