@@ -9,6 +9,7 @@ import ProjectsPage from './Pages/ProjectsPage/ProjectsPage'
 import PageNotFound from './Pages/PageNotFound/PageNotFound'
 import CartPage from './Pages/CartPage/CartPage'
 import { useState } from 'react'
+import _ from 'lodash'
 
 interface Props {}
 
@@ -24,7 +25,14 @@ const App = (props: Props) => {
         }))
     }
 
-    const [ProductsInCart, setProductsInCart] = useState<ProductsInCart>({})
+    const [ProductsInCart, setProductsInCart] = useState<ProductsInCart>({
+        1: 2,
+        4: 1,
+    })
+
+    const deleteProductFromCart = (id: number) => {
+        setProductsInCart((prevState) => _.omit(prevState, id))
+    }
 
     return (
         <>
@@ -44,7 +52,10 @@ const App = (props: Props) => {
                         !Object.keys(ProductsInCart).length ? (
                             'Cart is Empty'
                         ) : (
-                            <CartPage ProductsInCart={ProductsInCart} />
+                            <CartPage
+                                ProductsInCart={ProductsInCart}
+                                deleteProductFromCart={deleteProductFromCart}
+                            />
                         )
                     }
                 ></Route>

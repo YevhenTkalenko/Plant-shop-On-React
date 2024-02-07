@@ -1,44 +1,39 @@
-import { Container, Card, Grid } from '@mui/material'
-import PRODUCT, { ProductI, getProductsObject } from 'utils/Servises'
+import { Container, Typography, Grid } from '@mui/material'
+import CartProductList from 'Container/Components/CartProductList/CartProductList'
+import CartProductListItemExtended from 'Container/Components/CartProductList/CartProductListItemExtended'
+import CartTotal from 'Container/Components/CartTotal/CartTotal'
 
 interface Props {
     ProductsInCart: {
         [id: number]: number
     }
-
-    productsObject?: {
-        [id: number]: ProductI
-    }
+    deleteProductFromCart: (id: number) => void
 }
 
-const CartPage = ({
-    ProductsInCart,
-    productsObject = getProductsObject(PRODUCT),
-}: Props) => {
-    //prettier-ignore
+const CartPage = ({ ProductsInCart, deleteProductFromCart }: Props) => {
     return (
         <>
             <Container>
-                <Grid container spacing={2}>
-                    {Object.keys(ProductsInCart).map((productId, index) => {
-                        return (
-                            <>
-                                    <Grid item xs={12} sm={6} md={4}>
-                                        <Card>
-                                            <div key={index}>
-                                                <div>
-                                                    <img src={productsObject[parseInt(productId)].image} alt="" />
-                                                </div>
-                                                <div>{productsObject[parseInt(productId)].title}:{ProductsInCart[parseInt(productId)]}</div>
-                                                <div>{productsObject[parseInt(productId)].price}</div>
-                                                <div>{productsObject[parseInt(productId)].price * ProductsInCart[parseInt(productId)]}</div>
-                                            </div>
-                                        </Card>
-                                    </Grid>
-                            </>
-                        )
-                    })}
+                <Typography
+                    variant="h4"
+                    component="h1"
+                    sx={{
+                        marginBottom: '30px',
+                    }}
+                >
+                    Cart
+                </Typography>
+                <Grid container spacing={3}>
+                    <CartProductList
+                        deleteProductFromCart={deleteProductFromCart}
+                        ProductsInCart={ProductsInCart}
+                        CartItem={CartProductListItemExtended}
+                    />
                 </Grid>
+                <div>
+                    Total price for pay:{' '}
+                    <CartTotal ProductsInCart={ProductsInCart} />
+                </div>
             </Container>
         </>
     )
