@@ -1,14 +1,10 @@
 import { Container } from '@mui/material'
 import ServisesSection from 'Container/Sections/Servises/ServisesSection'
 
-interface Props {
-    addProductToCart: (count: number, price: number) => void
-}
-
-const ServisesPage = ({ addProductToCart }: Props) => {
+const ServisesPage = () => {
     return (
         <Container>
-            <ServisesSection addProductToCart={addProductToCart} />
+            <ServisesSection />
         </Container>
     )
 }

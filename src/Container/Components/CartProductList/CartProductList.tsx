@@ -2,7 +2,7 @@ import PRODUCT, { ProductI, getProductsObject } from 'utils/Servises'
 import CartProductListItem from './CartProductListItem'
 
 interface Props {
-    ProductsInCart: {
+    productsInCart: {
         [id: number]: number
     }
 
@@ -11,26 +11,22 @@ interface Props {
     }
 
     CartItem?: any
-
-    deleteProductFromCart?: (id: number) => void
 }
 
 const CartProductList = ({
     CartItem = CartProductListItem,
     productsObject = getProductsObject(PRODUCT),
-    ProductsInCart,
-    deleteProductFromCart,
+    productsInCart,
 }: Props) => {
     return (
         <>
-            {Object.keys(ProductsInCart).map((productId, index) => {
+            {Object.keys(productsInCart).map((productId, index) => {
                 return (
                     <>
                         <CartItem
                             key={index}
                             product={productsObject[parseInt(productId)]}
-                            productCount={ProductsInCart[parseInt(productId)]}
-                            deleteProductFromCart={deleteProductFromCart}
+                            productCount={productsInCart[parseInt(productId)]}
                         />
                     </>
                 )

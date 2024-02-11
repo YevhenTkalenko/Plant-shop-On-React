@@ -8,54 +8,26 @@ import ContactsPage from './Pages/ContactsPage/ContactsPage'
 import ProjectsPage from './Pages/ProjectsPage/ProjectsPage'
 import PageNotFound from './Pages/PageNotFound/PageNotFound'
 import CartPage from './Pages/CartPage/CartPage'
-import { useState } from 'react'
-import _ from 'lodash'
+import { useAppSelector } from './Global/Redux/hooks'
 
 interface Props {}
 
-interface ProductsInCart {
-    [id: number]: number
-}
-
 const App = (props: Props) => {
-    const addProductToCart = (id: number, count: number) => {
-        setProductsInCart((prevState) => ({
-            ...prevState,
-            [id]: (prevState[id] || 0) + count,
-        }))
-    }
-
-    const [ProductsInCart, setProductsInCart] = useState<ProductsInCart>({
-        1: 2,
-        4: 1,
-    })
-
-    const deleteProductFromCart = (id: number) => {
-        setProductsInCart((prevState) => _.omit(prevState, id))
-    }
-
+    const productInCart = useAppSelector((state) => state.productsInCart)
     return (
         <>
-            <Header ProductsInCart={ProductsInCart} />
+            <Header />
             <Routes>
                 <Route path="/" element={<HomePage />}></Route>
-                <Route
-                    path="/servises"
-                    element={
-                        <ServisesPage addProductToCart={addProductToCart} />
-                    }
-                ></Route>
+                <Route path="/servises" element={<ServisesPage />}></Route>
                 <Route path="/progects" element={<ProjectsPage />}></Route>
                 <Route
                     path="/cart"
                     element={
-                        !Object.keys(ProductsInCart).length ? (
+                        !Object.keys(productInCart).length ? (
                             'Cart is Empty'
                         ) : (
-                            <CartPage
-                                ProductsInCart={ProductsInCart}
-                                deleteProductFromCart={deleteProductFromCart}
-                            />
+                            <CartPage />
                         )
                     }
                 ></Route>

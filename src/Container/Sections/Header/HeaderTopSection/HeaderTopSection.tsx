@@ -6,13 +6,7 @@ import HeaderTopLaptopLinks from './HeaderTopLaptopLinks/HeaderTopLaptopLinks'
 import { Container } from '@mui/material'
 import CartHeader from 'Container/Components/CartHeader/CartHeader'
 
-interface Props {
-    ProductsInCart: {
-        [id: number]: number
-    }
-}
-
-const HeaderTopSection = ({ ProductsInCart }: Props) => {
+const HeaderTopSection = () => {
     const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth)
 
     const handleResize = () => {
@@ -34,7 +28,7 @@ const HeaderTopSection = ({ ProductsInCart }: Props) => {
                     <HeaderTopPhoneLinks />
                 )}
                 <HeaderLang />
-                <CartHeader ProductsInCart={ProductsInCart} />
+                <CartHeader />
             </Container>
         </div>
     )

@@ -1,6 +1,13 @@
-import { Button, TextField } from '@mui/material'
+import { Button } from '@mui/material'
 import './ServisesProductListItem.scss'
 import { useState } from 'react'
+import Quantity from '../Quantity/Quantity'
+import FavoriteIcon from '@mui/icons-material/Favorite'
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import { useAppDispatch, useAppSelector } from 'Container/Global/Redux/hooks'
+import { addLike, removeLike } from 'Container/Global/Redux/likeReducer'
+import { addProductToCart } from 'Container/Global/Redux/cartReducer'
+
 // import CheckIcon from '@mui/icons-material/Check'
 
 interface Props {
@@ -11,7 +18,6 @@ interface Props {
     price: number
     duration: number
     countOfSpecialists: number
-    addProductToCart: (id: number, count: number) => void
 }
 
 const ServisesProductListItem = ({
@@ -22,7 +28,6 @@ const ServisesProductListItem = ({
     price,
     countOfSpecialists,
     duration,
-    addProductToCart,
 }: Props) => {
     // const [disabled, isDisabled] = useState<boolean>(false)
 
@@ -42,66 +47,72 @@ const ServisesProductListItem = ({
         setCount((prevState) => prevState - 1)
     }
 
+    const isLiked: boolean = useAppSelector(
+        (state) => state.productsLikeState[id]
+    )
+
+    const dispatch = useAppDispatch()
+
     return (
-        <div className="servises-item-container">
-            <div className="servises-item-title">
-                <img src={image} alt="" />
-                <span>{title}</span>
-            </div>
-            <div className="servises-item-subtitle">
-                <div>
-                    <span>Description:</span>
-                    {fullDesctiption}
+        <>
+            <div className="servises-item-container">
+                <div className="servises-item-title">
+                    <img src={image} alt="" />
+                    <span>{title}</span>
+                    <Button
+                        variant="outlined"
+                        color="success"
+                        onClick={() =>
+                            isLiked
+                                ? dispatch(removeLike(id))
+                                : dispatch(addLike(id))
+                        }
+                    >
+                        {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                    </Button>
                 </div>
-                <div>
-                    <span>Price:</span>
-                    {price}$
+                <div className="servises-item-subtitle">
+                    <div>
+                        <span>Description:</span>
+                        {fullDesctiption}
+                    </div>
+                    <div>
+                        <span>Price:</span>
+                        {price}$
+                    </div>
+                    <div>
+                        <span>Specialists:</span>
+                        {countOfSpecialists}
+                    </div>
+                    <div>
+                        <span>Timing:</span>
+                        {duration} hours
+                    </div>
                 </div>
-                <div>
-                    <span>Specialists:</span>
-                    {countOfSpecialists}
-                </div>
-                <div>
-                    <span>Timing:</span>
-                    {duration} hours
-                </div>
-            </div>
-            <div className="servises-item-input">
-                <Button
-                    color="success"
-                    variant="outlined"
-                    onClick={onDecrement}
-                    disabled={count <= 1}
-                >
-                    -
-                </Button>
-                <TextField
-                    value={count}
-                    margin="none"
-                    variant="outlined"
-                    color="success"
-                    size="small"
+                <Quantity
+                    onIncrement={onIncrement}
+                    onDecrement={onDecrement}
+                    count={count}
                 />
-                <Button
-                    color="success"
-                    variant="outlined"
-                    onClick={onIncrement}
-                    disabled={count >= 10}
-                >
-                    +
-                </Button>
+                <div className="servises-item-button">
+                    <Button
+                        color="success"
+                        variant="contained"
+                        onClick={() =>
+                            dispatch(
+                                addProductToCart({
+                                    id,
+                                    count,
+                                })
+                            )
+                        }
+                    >
+                        ADD TO CART
+                    </Button>
+                    {/* <span>{disabled ? <CheckIcon /> : ''}</span> */}
+                </div>
             </div>
-            <div className="servises-item-button">
-                <Button
-                    color="success"
-                    variant="contained"
-                    onClick={() => addProductToCart(id, count)}
-                >
-                    ADD TO CART
-                </Button>
-                {/* <span>{disabled ? <CheckIcon /> : ''}</span> */}
-            </div>
-        </div>
+        </>
     )
 }
 export default ServisesProductListItem

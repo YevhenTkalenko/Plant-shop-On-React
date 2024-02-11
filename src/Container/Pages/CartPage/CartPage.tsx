@@ -2,15 +2,13 @@ import { Container, Typography, Grid } from '@mui/material'
 import CartProductList from 'Container/Components/CartProductList/CartProductList'
 import CartProductListItemExtended from 'Container/Components/CartProductList/CartProductListItemExtended'
 import CartTotal from 'Container/Components/CartTotal/CartTotal'
+import { useAppSelector } from 'Container/Global/Redux/hooks'
 
-interface Props {
-    ProductsInCart: {
-        [id: number]: number
-    }
-    deleteProductFromCart: (id: number) => void
-}
+interface Props {}
 
-const CartPage = ({ ProductsInCart, deleteProductFromCart }: Props) => {
+const CartPage = (props: Props) => {
+    const productsInCart = useAppSelector((state) => state.productsInCart)
+
     return (
         <>
             <Container>
@@ -25,14 +23,13 @@ const CartPage = ({ ProductsInCart, deleteProductFromCart }: Props) => {
                 </Typography>
                 <Grid container spacing={3}>
                     <CartProductList
-                        deleteProductFromCart={deleteProductFromCart}
-                        ProductsInCart={ProductsInCart}
+                        productsInCart={productsInCart}
                         CartItem={CartProductListItemExtended}
                     />
                 </Grid>
                 <div>
                     Total price for pay:{' '}
-                    <CartTotal ProductsInCart={ProductsInCart} />
+                    <CartTotal productsInCart={productsInCart} />
                 </div>
             </Container>
         </>

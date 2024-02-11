@@ -1,7 +1,7 @@
 import PRODUCT, { getProductsObject, ProductI } from 'utils/Servises'
 
 interface Props {
-    ProductsInCart: {
+    productsInCart: {
         [id: number]: number
     }
 
@@ -11,16 +11,16 @@ interface Props {
 }
 
 const CartTotal = ({
-    ProductsInCart,
+    productsInCart,
     productsObject = getProductsObject(PRODUCT),
 }: Props) => {
     return (
         <>
-            {Object.keys(ProductsInCart).reduce((total, productId) => {
+            {Object.keys(productsInCart).reduce((total, productId) => {
                 return (
                     total +
                     productsObject[parseInt(productId)].price *
-                        ProductsInCart[parseInt(productId)]
+                        productsInCart[parseInt(productId)]
                 )
             }, 0)}
         </>

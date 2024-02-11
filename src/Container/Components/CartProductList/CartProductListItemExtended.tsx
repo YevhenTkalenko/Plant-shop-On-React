@@ -1,17 +1,20 @@
-import { CardContent, Grid, Card } from '@mui/material'
+import { CardContent, Grid, Card, CardActions } from '@mui/material'
 import { ProductI } from 'utils/Servises'
 import cancel from 'assets/images/HeaderImage/HeaderBottomImg/cancel.svg'
+import Quantity from '../Quantity/Quantity'
+import { useAppDispatch } from 'Container/Global/Redux/hooks'
+import {
+    changeProductQuantity,
+    removeProductFromCart,
+} from 'Container/Global/Redux/cartReducer'
 
 interface Props {
     product: ProductI
     productCount: number
-    deleteProductFromCart: (id: number) => void
 }
-const CartProductListItemExtended = ({
-    product,
-    productCount,
-    deleteProductFromCart,
-}: Props) => {
+const CartProductListItemExtended = ({ product, productCount }: Props) => {
+    const dispatch = useAppDispatch()
+
     return (
         <Grid item xs={12} sm={4}>
             <Card>
@@ -22,13 +25,37 @@ const CartProductListItemExtended = ({
                     <div>{product.title}</div>
                     <p>Price for one item: {product.price}</p>
                     <p>Count: {productCount}</p>
-                    <div>
+                    <Quantity
+                        count={productCount}
+                        onIncrement={() =>
+                            dispatch(
+                                changeProductQuantity({
+                                    id: product.id,
+                                    count: productCount + 1,
+                                })
+                            )
+                        }
+                        onDecrement={() =>
+                            productCount <= 1
+                                ? dispatch(removeProductFromCart(product.id))
+                                : dispatch(
+                                      changeProductQuantity({
+                                          id: product.id,
+                                          count: productCount - 1,
+                                      })
+                                  )
+                        }
+                        minCount={0}
+                    />
+                    <CardActions>
                         <button
-                            onClick={() => deleteProductFromCart(product.id)}
+                            onClick={() =>
+                                dispatch(removeProductFromCart(product.id))
+                            }
                         >
                             <img src={cancel} alt="" />
                         </button>
-                    </div>
+                    </CardActions>
                 </CardContent>
             </Card>
         </Grid>

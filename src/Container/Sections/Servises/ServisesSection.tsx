@@ -1,10 +1,12 @@
+import Reviews from 'Container/Components/Reviews/Reviews'
 import ServisesProductList from 'Container/Components/ServisesProductList/ServisesProductList'
 
-interface Props {
-    addProductToCart: (count: number, price: number) => void
-}
-
-const ServisesSection = ({ addProductToCart }: Props) => {
-    return <ServisesProductList addProductToCart={addProductToCart} />
+const ServisesSection = () => {
+    return (
+        <>
+            <ServisesProductList />
+            <Reviews></Reviews>
+        </>
+    )
 }
 export default ServisesSection

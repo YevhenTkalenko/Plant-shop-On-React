@@ -1,20 +1,17 @@
 import CartTotal from '../CartTotal/CartTotal'
 import CartProductList from '../CartProductList/CartProductList'
+import { useAppSelector } from 'Container/Global/Redux/hooks'
 
-interface Props {
-    ProductsInCart: {
-        [id: number]: number
-    }
-}
+const CartHeader = () => {
+    const productsInCart = useAppSelector((state) => state.productsInCart)
 
-const CartHeader = ({ ProductsInCart }: Props) => {
     return (
         <>
             <div style={{ color: 'white' }}>
-                <CartProductList ProductsInCart={ProductsInCart} />
+                <CartProductList productsInCart={productsInCart} />
                 <div>
                     Total:
-                    <CartTotal ProductsInCart={ProductsInCart} />
+                    <CartTotal productsInCart={productsInCart} />
                 </div>
             </div>
         </>
