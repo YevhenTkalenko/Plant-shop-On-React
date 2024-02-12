@@ -3,6 +3,7 @@ import CartProductList from 'Container/Components/CartProductList/CartProductLis
 import CartProductListItemExtended from 'Container/Components/CartProductList/CartProductListItemExtended'
 import CartTotal from 'Container/Components/CartTotal/CartTotal'
 import { useAppSelector } from 'Container/Global/Redux/hooks'
+import { Link } from 'react-router-dom'
 
 interface Props {}
 
@@ -31,6 +32,7 @@ const CartPage = (props: Props) => {
                     Total price for pay:{' '}
                     <CartTotal productsInCart={productsInCart} />
                 </div>
+                <Link to="/checkout">Proceed to checkout </Link>
             </Container>
         </>
     )

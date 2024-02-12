@@ -59,17 +59,6 @@ const ServisesProductListItem = ({
                 <div className="servises-item-title">
                     <img src={image} alt="" />
                     <span>{title}</span>
-                    <Button
-                        variant="outlined"
-                        color="success"
-                        onClick={() =>
-                            isLiked
-                                ? dispatch(removeLike(id))
-                                : dispatch(addLike(id))
-                        }
-                    >
-                        {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
-                    </Button>
                 </div>
                 <div className="servises-item-subtitle">
                     <div>
@@ -95,21 +84,39 @@ const ServisesProductListItem = ({
                     count={count}
                 />
                 <div className="servises-item-button">
-                    <Button
-                        color="success"
-                        variant="contained"
-                        onClick={() =>
-                            dispatch(
-                                addProductToCart({
-                                    id,
-                                    count,
-                                })
-                            )
-                        }
-                    >
-                        ADD TO CART
-                    </Button>
-                    {/* <span>{disabled ? <CheckIcon /> : ''}</span> */}
+                    <div>
+                        <Button
+                            color="success"
+                            variant="contained"
+                            onClick={() =>
+                                dispatch(
+                                    addProductToCart({
+                                        id,
+                                        count,
+                                    })
+                                )
+                            }
+                        >
+                            ADD TO CART
+                        </Button>
+                    </div>
+                    <div>
+                        <Button
+                            variant="outlined"
+                            color="success"
+                            onClick={() =>
+                                isLiked
+                                    ? dispatch(removeLike(id))
+                                    : dispatch(addLike(id))
+                            }
+                        >
+                            {isLiked ? (
+                                <FavoriteIcon />
+                            ) : (
+                                <FavoriteBorderIcon />
+                            )}
+                        </Button>
+                    </div>
                 </div>
             </div>
         </>

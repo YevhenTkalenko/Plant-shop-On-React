@@ -9,6 +9,7 @@ import ProjectsPage from './Pages/ProjectsPage/ProjectsPage'
 import PageNotFound from './Pages/PageNotFound/PageNotFound'
 import CartPage from './Pages/CartPage/CartPage'
 import { useAppSelector } from './Global/Redux/hooks'
+import CheckOutPage from './Pages/CheckOutPage/CheckOutPage'
 
 interface Props {}
 
@@ -33,6 +34,7 @@ const App = (props: Props) => {
                 ></Route>
                 <Route path="/blog" element={<BlogPage />}></Route>
                 <Route path="/contacts" element={<ContactsPage />}></Route>
+                <Route path="/checkout" element={<CheckOutPage />}></Route>
                 <Route path="*" element={<PageNotFound />}></Route>
             </Routes>
             <Footer />

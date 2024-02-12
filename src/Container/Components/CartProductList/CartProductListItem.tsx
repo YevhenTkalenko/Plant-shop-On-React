@@ -1,4 +1,5 @@
 import { ProductI } from 'utils/Servises'
+import './CartProductListItem.scss'
 
 interface Props {
     productCount: number
@@ -8,8 +9,10 @@ interface Props {
 const CartProductListItem = ({ productCount, product }: Props) => {
     return (
         <>
-            <div>
-                {product.title}:{productCount}
+            <div className="product-list-item">
+                <span>{product.title}:</span>
+                <span>{productCount}</span>
+                <img src={product.image} alt="" />
             </div>
         </>
     )

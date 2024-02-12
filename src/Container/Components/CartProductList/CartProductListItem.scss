@@ -1,0 +1,25 @@
+@media (min-width: 320px) {
+    .product-list-item {
+        display: flex;
+        align-items: center;
+
+        span {
+            &:nth-child(2) {
+                margin-left: 5px;
+            }
+        }
+
+        img {
+            height: 40px;
+            margin-left: 10px;
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .product-list-item {
+        img {
+            height: 50px;
+        }
+    }
+}
