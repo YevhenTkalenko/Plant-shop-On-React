@@ -39,6 +39,22 @@
                 bottom: 13px;
             }
         }
+
+        .cart-header-link-cart {
+            border-top: 1px solid green;
+            text-align: center;
+
+            &:hover {
+                background-color: rgb(222, 255, 222);
+            }
+
+            & a {
+                text-decoration: none;
+                color: green;
+                width: 100%;
+                display: inline-block;
+            }
+        }
     }
 }
 

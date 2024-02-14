@@ -15,6 +15,7 @@ interface Props {}
 
 const App = (props: Props) => {
     const productInCart = useAppSelector((state) => state.productsInCart)
+
     return (
         <>
             <Header />

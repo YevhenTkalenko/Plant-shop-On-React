@@ -46,10 +46,11 @@ const CartHeader = () => {
                                 </div>
                             </>
                         )}
-
-                        <Link to="/cart" onClick={handleClick}>
-                            View to Cart
-                        </Link>
+                        <div className="cart-header-link-cart">
+                            <Link to="/cart" onClick={handleClick}>
+                                View to Cart &rarr;
+                            </Link>
+                        </div>
                     </Card>
                 </div>
             </div>

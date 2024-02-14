@@ -1,0 +1,40 @@
+@import '../../../Global/SCSS/mixins';
+@import '../../../Global/SCSS/variables';
+
+@media (min-width: 320px) {
+    .page-found-content-container {
+        @include display_Direction_Center_Column;
+        margin-bottom: 35px;
+
+        & h2 {
+            font-size: 7rem;
+            color: $mainColorForButtonsAndTitle;
+            margin: 0;
+        }
+
+        & h3 {
+            @include main_Title_Style_Laptop_3;
+            text-align: center;
+        }
+
+        & p {
+            text-align: center;
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .page-found-content-container {
+        & h2 {
+            font-size: 13rem;
+        }
+
+        & h3 {
+            font-size: $mainFontSizeForTitle_35px;
+        }
+
+        & p {
+            font-size: $mainFontSizeForTitle_22px;
+        }
+    }
+}
