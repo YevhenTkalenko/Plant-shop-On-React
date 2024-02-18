@@ -1,6 +1,7 @@
 import { Card } from '@mui/material'
 import PRODUCT from 'utils/Servises'
 import ServisesProductListItem from './ServisesProductListItem'
+import { Fragment } from 'react'
 
 const ServisesProductList = () => {
     return (
@@ -16,12 +17,11 @@ const ServisesProductList = () => {
                     duration,
                 }) => {
                     return (
-                        <>
+                        <Fragment key={id}>
                             <Card
                                 sx={{
                                     marginBottom: '15px',
                                 }}
-                                key={id}
                             >
                                 <ServisesProductListItem
                                     id={id}
@@ -33,7 +33,7 @@ const ServisesProductList = () => {
                                     duration={duration}
                                 />
                             </Card>
-                        </>
+                        </Fragment>
                     )
                 }
             )}

@@ -7,6 +7,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import { useAppDispatch, useAppSelector } from 'Container/Global/Redux/hooks'
 import { addLike, removeLike } from 'Container/Global/Redux/likeReducer'
 import { addProductToCart } from 'Container/Global/Redux/cartReducer'
+import { Link } from 'react-router-dom'
 
 // import CheckIcon from '@mui/icons-material/Check'
 
@@ -29,14 +30,6 @@ const ServisesProductListItem = ({
     countOfSpecialists,
     duration,
 }: Props) => {
-    // const [disabled, isDisabled] = useState<boolean>(false)
-
-    // const isAddedToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
-    //     if (!e.currentTarget.disabled) {
-    //         return isDisabled(true)
-    //     }
-    // }
-
     const [count, setCount] = useState<number>(1)
 
     const onIncrement = () => {
@@ -54,11 +47,15 @@ const ServisesProductListItem = ({
     const dispatch = useAppDispatch()
 
     return (
+        // prettier-ignore
         <>
             <div className="servises-item-container">
                 <div className="servises-item-title">
                     <img src={image} alt="" />
                     <span>{title}</span>
+                    <div>
+                    <Link to={`/product/${id}`}>View more how it works..?</Link>
+                    </div>
                 </div>
                 <div className="servises-item-subtitle">
                     <div>
@@ -69,52 +66,22 @@ const ServisesProductListItem = ({
                         <span>Price:</span>
                         {price}$
                     </div>
-                    <div>
-                        <span>Specialists:</span>
-                        {countOfSpecialists}
-                    </div>
-                    <div>
-                        <span>Timing:</span>
-                        {duration} hours
-                    </div>
                 </div>
-                <Quantity
-                    onIncrement={onIncrement}
-                    onDecrement={onDecrement}
-                    count={count}
-                />
+                <Quantity onIncrement={onIncrement} onDecrement={onDecrement}count={count}/>
                 <div className="servises-item-button">
                     <div>
-                        <Button
-                            color="success"
-                            variant="contained"
-                            onClick={() =>
-                                dispatch(
-                                    addProductToCart({
-                                        id,
-                                        count,
-                                    })
-                                )
-                            }
+                        <Button color="success" variant="contained"
+                            onClick={() =>dispatch(
+                                    addProductToCart({id,count}))}
                         >
                             ADD TO CART
                         </Button>
                     </div>
                     <div>
-                        <Button
-                            variant="outlined"
-                            color="success"
-                            onClick={() =>
-                                isLiked
-                                    ? dispatch(removeLike(id))
-                                    : dispatch(addLike(id))
-                            }
+                        <Button variant="outlined" color="success" onClick={() =>
+                                isLiked ? dispatch(removeLike(id)): dispatch(addLike(id))}
                         >
-                            {isLiked ? (
-                                <FavoriteIcon />
-                            ) : (
-                                <FavoriteBorderIcon />
-                            )}
+                            {isLiked ? (<FavoriteIcon />) : (<FavoriteBorderIcon />)}
                         </Button>
                     </div>
                 </div>

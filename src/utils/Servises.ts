@@ -18,6 +18,8 @@ export interface ProductI {
     price: number,
     duration: number,
     countOfSpecialists: number
+    difficult: string,
+    rank: number
 }
 
 const PRODUCT: ProductI[] = [
@@ -28,10 +30,12 @@ const PRODUCT: ProductI[] = [
         title: 'Tree Planting',
         shortDescription: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis',
         fullDesctiption: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendisLorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem consequatur cumque pariatur, perferendis',
-        link: '/servises',
+        link: '/servises#section2',
         price: 150,
         duration: 2,
-        countOfSpecialists: 1
+        countOfSpecialists: 1,
+        difficult: 'easy',
+        rank: 1
     },
     {
         id: 2,
@@ -43,7 +47,9 @@ const PRODUCT: ProductI[] = [
         link: '/servises#section2',
         price: 50,
         duration: 1,
-        countOfSpecialists: 2
+        countOfSpecialists: 2,
+        difficult: 'medium',
+        rank: 2
     },
     {
         id: 3,
@@ -55,7 +61,9 @@ const PRODUCT: ProductI[] = [
         link: '/servises#section3',
         price: 80,
         duration: 3,
-        countOfSpecialists: 3
+        countOfSpecialists: 3,
+        difficult: 'hard',
+        rank: 3
     },
     {
         id: 4,
@@ -67,7 +75,9 @@ const PRODUCT: ProductI[] = [
         link: '/servises#section4',
         price: 170,
         duration: 2.30,
-        countOfSpecialists: 1
+        countOfSpecialists: 1,
+        difficult: 'easy',
+        rank: 1
     },
     {
         id: 5,
@@ -79,7 +89,9 @@ const PRODUCT: ProductI[] = [
         link: '/servises#section5',
         price: 30,
         duration: 1.30,
-        countOfSpecialists: 2
+        countOfSpecialists: 2,
+        difficult: 'medium',
+        rank: 2
     },
     {
         id: 6,
@@ -91,7 +103,9 @@ const PRODUCT: ProductI[] = [
         link: '/servises#section6',
         price: 170,
         duration: 1,
-        countOfSpecialists: 1
+        countOfSpecialists: 1,
+        difficult: 'easy',
+        rank: 1
     },
     {
         id: 7,
@@ -103,7 +117,9 @@ const PRODUCT: ProductI[] = [
         link: '/servises#section7',
         price: 450,
         duration: 2.5,
-        countOfSpecialists: 4
+        countOfSpecialists: 4,
+        difficult: 'extra-hard',
+        rank: 4
     },
     {
         id: 8,
@@ -115,7 +131,9 @@ const PRODUCT: ProductI[] = [
         link: `/servises#section8`,
         price: 300,
         duration: 5,
-        countOfSpecialists: 2
+        countOfSpecialists: 2,
+        difficult: 'medium',
+        rank: 2
     },
 ]
 

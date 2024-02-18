@@ -1,0 +1,58 @@
+@import '../../../Global/SCSS/mixins';
+@import '../../../Global/SCSS/variables';
+
+@media (min-width: 320px) {
+    .product-card-how-it-works {
+        border-top: 1px solid black;
+    }
+
+    .how-it-works-title {
+        text-align: center;
+        padding-top: 15px;
+        & span {
+            color: $mainColorForButtonsAndTitle;
+        }
+    }
+
+    .how-it-works-item {
+        margin-bottom: 15px;
+
+        & h4 {
+            @include main_Title_Style_Phone_1;
+        }
+
+        .how-it-works-card-content {
+            @include display_Space_Between;
+            align-items: center;
+
+            & div:nth-child(2) {
+                @include main_Title_Style_Phone_4;
+            }
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .how-it-works-item {
+        cursor: pointer;
+
+        & h4 {
+            font-size: 25px;
+        }
+
+        &:hover {
+            background-color: green;
+            color: white;
+
+            & .logo path {
+                fill: white;
+            }
+        }
+
+        .how-it-works-card-content {
+            & div:nth-child(2) {
+                font-size: $mainFontSizeForTitle_22px;
+            }
+        }
+    }
+}

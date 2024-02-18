@@ -1,5 +1,6 @@
 import PRODUCT, { ProductI, getProductsObject } from 'utils/Servises'
 import CartProductListItem from './CartProductListItem'
+import { Fragment } from 'react'
 
 interface Props {
     productsInCart: {
@@ -22,13 +23,12 @@ const CartProductList = ({
         <>
             {Object.keys(productsInCart).map((productId, index) => {
                 return (
-                    <>
+                    <Fragment key={index}>
                         <CartItem
-                            key={index}
                             product={productsObject[parseInt(productId)]}
                             productCount={productsInCart[parseInt(productId)]}
                         />
-                    </>
+                    </Fragment>
                 )
             })}
         </>

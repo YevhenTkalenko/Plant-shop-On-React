@@ -1,0 +1,12 @@
+.product-title {
+    display: flex;
+
+    span {
+        align-self: center;
+        margin-left: 15px;
+    }
+    button {
+        margin-left: auto;
+        cursor: pointer;
+    }
+}

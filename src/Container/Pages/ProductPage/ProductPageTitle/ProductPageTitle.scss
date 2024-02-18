@@ -1,0 +1,29 @@
+@import '../../../Global/SCSS/mixins';
+
+@media (min-width: 320px) {
+    .product-card-title {
+        @include display_CenterRow_and_CenterColumn;
+        @include main_Title_Style_Laptop_3;
+        margin-top: 25px;
+
+        & span {
+            margin-left: 10px;
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .product-card-title {
+        font-size: 35px;
+        font-weight: 800;
+
+        & > img {
+            width: 120px;
+            height: 120px;
+        }
+
+        & span {
+            margin-left: 15px;
+        }
+    }
+}

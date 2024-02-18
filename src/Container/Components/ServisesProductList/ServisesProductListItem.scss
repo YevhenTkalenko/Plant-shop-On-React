@@ -1,4 +1,5 @@
 @import '../../Global/SCSS/mixins';
+@import '../../Global/SCSS/variables';
 
 @media (min-width: 320px) {
     .servises-item-container {
@@ -7,22 +8,37 @@
         padding: 10px;
 
         .servises-item-title {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            @include display_CenterRow_and_CenterColumn;
             margin-bottom: 10px;
+            flex-wrap: wrap;
 
-            span {
+            & span {
                 @include main_Title_Style_Laptop_3;
                 margin-left: 15px;
+            }
+
+            & div {
+                width: 100%;
+                text-align: center;
+                margin: 20px 0 5px;
+
+                a {
+                    text-decoration: none;
+                    color: $mainColorForButtonsAndTitle;
+                    @include main_Title_Style_Laptop_3;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
             }
         }
 
         .servises-item-subtitle {
-            display: flex;
+            @include display_Space_Between;
             flex-wrap: wrap;
-            justify-content: space-between;
-            span {
+
+            & span {
                 @include main_Title_Style_Phone_3;
                 margin-right: 7px;
             }
@@ -32,9 +48,7 @@
         }
 
         .servises-item-input {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            @include display_CenterRow_and_CenterColumn;
             margin: 0 -10px;
 
             button {
@@ -43,20 +57,17 @@
         }
 
         .servises-item-button {
+            @include display_Space_Between;
             margin-top: 15px;
-            display: flex;
             width: 100%;
-            justify-content: space-between;
 
             span {
-                display: flex;
-                justify-content: center;
-                align-items: center;
+                @include display_CenterRow_and_CenterColumn;
                 height: 100%;
                 svg {
                     object-fit: cover;
-                    border: 2px solid green;
-                    color: green;
+                    border: 2px solid $mainColorForButtonsAndTitle;
+                    color: $mainColorForButtonsAndTitle;
                     border-radius: 50%;
                     margin-top: 5px;
                     font-size: 35px;

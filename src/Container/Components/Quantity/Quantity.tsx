@@ -1,4 +1,5 @@
 import { Button, TextField } from '@mui/material'
+import './Quantity.scss'
 
 interface Props {
     onDecrement?: () => void
@@ -24,6 +25,10 @@ const Quantity = ({ onDecrement, onIncrement, count, minCount = 1 }: Props) => {
                 variant="outlined"
                 color="success"
                 size="small"
+                style={{
+                    width: '150px',
+                    margin: '0px 5px',
+                }}
             />
             <Button
                 color="success"

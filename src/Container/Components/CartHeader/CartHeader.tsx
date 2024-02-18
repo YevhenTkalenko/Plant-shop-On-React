@@ -43,6 +43,7 @@ const CartHeader = () => {
                                     <CartTotal
                                         productsInCart={productsInCart}
                                     />
+                                    $
                                 </div>
                             </>
                         )}

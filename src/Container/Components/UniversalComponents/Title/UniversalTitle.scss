@@ -4,6 +4,7 @@
 @media (min-width: 320px) {
     .universal-title {
         background-image: url('../../../../assets/images/NotFoundPageImages/background.png');
+        margin-bottom: 15px;
 
         .universal-container {
             @include display_Direction_Center_Column;
@@ -13,6 +14,10 @@
 
             p {
                 text-align: center;
+
+                img {
+                    color: white;
+                }
             }
         }
     }

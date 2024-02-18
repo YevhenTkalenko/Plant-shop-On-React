@@ -10,6 +10,12 @@
     flex-direction: column;
 }
 
+@mixin display_CenterRow_and_CenterColumn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 //2)Title Styles
 @mixin main_Title_Style_Phone_1 {
     font-size: $mainFontSizeForTitle_35px;

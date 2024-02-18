@@ -1,6 +1,5 @@
 import { Container } from '@mui/material'
 import PageNoFoundContent from './PageNoFoundContent/PageNoFoundContent'
-import PageNoFoundFooter from './PageNoFoundFooter/PageNoFoundFooter'
 import UniversalTitle from 'Container/Components/UniversalComponents/Title/UniversalTitle'
 
 interface Props {}
@@ -19,7 +18,6 @@ const PageNotFound = (props: Props) => {
             </UniversalTitle>
             <Container>
                 <PageNoFoundContent />
-                <PageNoFoundFooter />
             </Container>
         </>
     )

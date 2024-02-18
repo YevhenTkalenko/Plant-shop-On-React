@@ -6,93 +6,99 @@ import {
     Typography,
     Button,
 } from '@mui/material'
-import React, { useState } from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import './Reviews.scss'
 
 interface Props {}
 
 interface Reviews {
+    postId: number
+    id?: number
     name: string
-    text: string
+    email: string
+    body: string
 }
 
 const Reviews = (props: Props) => {
-    const arrReviews: Reviews[] = [
-        {
-            name: 'Divad',
-            text: 'Tenetur at placeat, culpa quam rerum earum vero blanditiis porro commodi sapiente, magnam sint fugiat dolor vel iusto a?',
-        },
-        {
-            name: 'Kevin',
-            text: 'Tenetur at placeat, culpa quam rerum earum vero blanditiis porro commodi sapiente, magnam sint fugiat dolor vel iusto a?',
-        },
-        {
-            name: 'Lisa',
-            text: 'Tenetur at placeat, culpa quam rerum earum vero blanditiis porro commodi sapiente, magnam sint fugiat dolor vel iusto a?',
-        },
-    ]
+    const { id } = useParams()
+    const [reviews, setReviews] = useState<Reviews[]>([])
 
-    const [reviews, setReviews] = useState<Reviews[]>(arrReviews)
-    const [newReview, setNewReview] = useState<Reviews>({
-        name: '',
-        text: '',
-    })
-
-    const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setNewReview((prevState) => ({
-            ...prevState,
-            name: e.target.value,
-        }))
-    }
-
-    const handleText = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setNewReview((prevState) => ({
-            ...prevState,
-            text: e.target.value,
-        }))
-    }
-
-    const onSend = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-
-        if (newReview.name === '' || newReview.text === '') {
-            alert('All fields are required!!')
-        } else {
-            setNewReview({
-                name: '',
-                text: '',
-            })
-
+    const getReviews = () => {
+        const url = `https://jsonplaceholder.typicode.com/comments`
+        const getData = axios.get(url)
+        return getData.then((responce) => {
             setReviews((prevState) => {
-                return [...prevState, newReview]
+                return (prevState = responce.data.filter(
+                    (el: Reviews) => el.postId === parseInt(id!)
+                ))
             })
-        }
+        })
     }
+
+    useEffect(() => {
+        getReviews()
+    }, [setReviews])
+
+    // const [newReview, setNewReview] = useState<Reviews>({
+    //     postId: parseInt(id!),
+    //     name: '',
+    //     email: '',
+    //     body: '',
+    // })
+
+    // const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //     setNewReview((prevState) => ({
+    //         ...prevState,
+    //         name: e.target.value,
+    //     }))
+    // }
+
+    // const onSend = (e: React.FormEvent<HTMLFormElement>) => {
+    //     e.preventDefault()
+
+    //     if (newReview.name === '') {
+    //         alert('All fields are required!!')
+    //     } else {
+    //         setNewReview({
+    //             postId: parseInt(id!),
+    //             name: '',
+    //             email: '',
+    //             body: '',
+    //         })
+
+    //         setReviews((prevState) => {
+    //             return [...prevState, newReview]
+    //         })
+    //     }
+    // }
 
     return (
+        //prettier-ignore
         <>
-            <Typography variant="h4" component="h2">
-                Reviews
-            </Typography>
+            <div className='reviews-title'>
+                <h4>Reviews</h4>
+            </div>
             <div>
                 {reviews.map((review, i) => {
                     return (
-                        <Card
-                            key={i}
-                            variant="outlined"
-                            sx={{
-                                marginTop: '5px',
-                            }}
-                        >
+                        <Card key={i} variant="outlined" sx={{
+                            marginBottom: '15px'
+                        }}>                     
                             <CardContent>
-                                <p>Name: {review.name}</p>
-                                <p> {review.text}</p>
+                                <div className='reviews-item'>
+                                    <h4>Name: <span>{review.name}</span></h4>
+                                    <span>{review.body}</span>
+                                    <p>{review.email}</p>
+                                </div>
                             </CardContent>
                         </Card>
                     )
                 })}
             </div>
 
-            <form onSubmit={onSend}>
+            {/* <form onSubmit={onSend}>
                 <h3>Please leave review</h3>
                 <div>
                     <TextField
@@ -103,17 +109,11 @@ const Reviews = (props: Props) => {
                     />
                 </div>
                 <div>
-                    <TextareaAutosize
-                        value={newReview.text}
-                        onChange={handleText}
-                    />
-                </div>
-                <div>
                     <Button variant="contained" color="success" type="submit">
                         Send
                     </Button>
                 </div>
-            </form>
+            </form> */}
         </>
     )
 }

@@ -10,6 +10,9 @@ import PageNotFound from './Pages/PageNotFound/PageNotFound'
 import CartPage from './Pages/CartPage/CartPage'
 import { useAppSelector } from './Global/Redux/hooks'
 import CheckOutPage from './Pages/CheckOutPage/CheckOutPage'
+import ProductPage from './Pages/ProductPage/ProductPage'
+import PageNoFoundFooter from './Pages/PageNotFound/PageNoFoundFooter/PageNoFoundFooter'
+import { Container } from '@mui/material'
 
 interface Props {}
 
@@ -36,8 +39,12 @@ const App = (props: Props) => {
                 <Route path="/blog" element={<BlogPage />}></Route>
                 <Route path="/contacts" element={<ContactsPage />}></Route>
                 <Route path="/checkout" element={<CheckOutPage />}></Route>
+                <Route path="/product/:id" element={<ProductPage />}></Route>
                 <Route path="*" element={<PageNotFound />}></Route>
             </Routes>
+            <Container>
+                <PageNoFoundFooter />
+            </Container>
             <Footer />
         </>
     )

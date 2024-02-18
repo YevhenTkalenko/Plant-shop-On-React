@@ -1,0 +1,77 @@
+@import '../../Global/SCSS/mixins';
+@import '../../Global/SCSS/variables';
+
+@media (min-width: 320px) {
+    .order-form {
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+
+        h4 {
+            @include main_Title_Style_Phone_2;
+
+            span {
+                color: $mainColorForButtonsAndTitle;
+            }
+        }
+
+        & div {
+            margin: 2px 0;
+
+            & * {
+                width: 100%;
+            }
+
+            legend {
+                width: auto;
+            }
+        }
+
+        .order-form-area {
+            height: 150px;
+            resize: none;
+
+            &:focus {
+                outline: 1px solid $mainColorForButtonsAndTitle;
+                border-radius: 4px;
+            }
+
+            &::placeholder {
+                font-size: 16px;
+                font-weight: 400;
+                height: 23px;
+                letter-spacing: 0.15008px;
+                line-height: 23px;
+                padding: 0 10px;
+            }
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .order-form {
+        flex-wrap: wrap;
+        align-items: center;
+
+        h4 {
+            @include main_Title_Style_Laptop_1;
+        }
+
+        & div {
+            width: 95%;
+            display: flex;
+        }
+        .order-form-area {
+            width: 97.5%;
+            border-radius: 4px;
+        }
+
+        .order-form-button {
+            justify-content: center;
+            margin-top: 15px;
+            button {
+                width: auto;
+            }
+        }
+    }
+}

@@ -1,0 +1,5 @@
+@import '../../Global/SCSS/mixins';
+
+.servises-item-input {
+    @include display_CenterRow_and_CenterColumn;
+}
