@@ -1,7 +1,7 @@
 import { Card, CardContent, Container, Button } from '@mui/material'
 import Reviews from 'Container/Components/Reviews/Reviews'
 import UniversalTitle from 'Container/Components/UniversalComponents/Title/UniversalTitle'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import PRODUCT, { ProductI, getProductsObject } from 'utils/Servises'
 import ProductPageTitle from './ProductPageTitle/ProductPageTitle'
 import ProductPageDetails from './ProductPageDetails/ProductPageDetails'

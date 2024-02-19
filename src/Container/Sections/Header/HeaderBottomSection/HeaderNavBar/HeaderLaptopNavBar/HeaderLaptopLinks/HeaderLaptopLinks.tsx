@@ -1,7 +1,14 @@
-import { NavLink } from 'react-router-dom'
+import { useEffect } from 'react'
+import { NavLink, useLocation } from 'react-router-dom'
 
 interface Props {}
 const HeaderLaptopLinks = (props: Props) => {
+    const { pathname } = useLocation()
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [pathname])
+
     return (
         <ul className="header-laptop-list">
             <li>
