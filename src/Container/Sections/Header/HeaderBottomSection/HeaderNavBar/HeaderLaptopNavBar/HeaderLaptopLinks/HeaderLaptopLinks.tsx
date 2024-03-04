@@ -1,8 +1,11 @@
 import { useEffect } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 
-interface Props {}
-const HeaderLaptopLinks = (props: Props) => {
+interface Props {
+    isAuthorized: boolean
+}
+
+const HeaderLaptopLinks = ({ isAuthorized }: Props) => {
     const { pathname } = useLocation()
 
     useEffect(() => {
@@ -14,9 +17,14 @@ const HeaderLaptopLinks = (props: Props) => {
             <li>
                 <NavLink to="/">Home</NavLink>
             </li>
-            <li>
-                <NavLink to="/servises">Servises</NavLink>
-            </li>
+            {isAuthorized ? (
+                <li>
+                    <NavLink to="/servises">Servises</NavLink>
+                </li>
+            ) : (
+                ''
+            )}
+
             <li>
                 <NavLink to="/progects">Projects</NavLink>
             </li>
@@ -26,9 +34,13 @@ const HeaderLaptopLinks = (props: Props) => {
             <li>
                 <NavLink to="/contacts">Contacts</NavLink>
             </li>
-            <li>
-                <NavLink to="/cart">Cart</NavLink>
-            </li>
+            {isAuthorized ? (
+                <li>
+                    <NavLink to="/cart">Cart</NavLink>
+                </li>
+            ) : (
+                ''
+            )}
         </ul>
     )
 }

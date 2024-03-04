@@ -1,9 +1,11 @@
 import './HeaderBottomSection.scss'
 import HeaderNavBar from './HeaderNavBar/HeaderNavBar'
 
-interface Props {}
+interface Props {
+    isAuthorized:boolean
+}
 
-const HeaderBottomSection = (props: Props) => {
+const HeaderBottomSection = ({isAuthorized}: Props) => {
     return (
         <div
             className="header-bottom-section"
@@ -11,7 +13,7 @@ const HeaderBottomSection = (props: Props) => {
                 position: 'relative',
             }}
         >
-            <HeaderNavBar />
+            <HeaderNavBar isAuthorized={isAuthorized}/>
         </div>
     )
 }

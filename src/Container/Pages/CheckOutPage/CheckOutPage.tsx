@@ -1,16 +1,16 @@
 import { Container, TextField, Button, Card } from '@mui/material'
 import UniversalTitle from 'Container/Components/UniversalComponents/Title/UniversalTitle'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './CheckOutPage.scss'
 
 interface Props {}
 
 interface Order {
-    name: string
+    [name: string]: string
     surname: string
     email: string
-    phone: number | string
+    phone: string
     city: string
     adress: string
     commnets: string
@@ -18,6 +18,7 @@ interface Order {
 
 const CheckOutPage = (props: Props) => {
     const [isOrderSend, setIsOrderSend] = useState<boolean>(false)
+    const [isSubmitDisabled, setIsSubmitDisabled] = useState<boolean>(true)
 
     const [orderData, setOrderData] = useState<Order>({
         name: '',
@@ -29,70 +30,30 @@ const CheckOutPage = (props: Props) => {
         commnets: '',
     })
 
-    const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setOrderData((prevState) => ({
-            ...prevState,
-            name: e.target.value,
-        }))
-    }
-
-    const handleSurname = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setOrderData((prevState) => ({
-            ...prevState,
-            surname: e.target.value,
-        }))
-    }
-
-    const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setOrderData((prevState) => ({
-            ...prevState,
-            email: e.target.value,
-        }))
-    }
-
-    const handlePhone = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setOrderData((prevState) => ({
-            ...prevState,
-            phone: e.target.value,
-        }))
-    }
-
-    const handleCity = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setOrderData((prevState) => ({
-            ...prevState,
-            city: e.target.value,
-        }))
-    }
-
-    const handleAdress = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setOrderData((prevState) => ({
-            ...prevState,
-            adress: e.target.value,
-        }))
-    }
-
-    const handleComments = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setOrderData((prevState) => ({
-            ...prevState,
-            commnets: e.target.value,
-        }))
+    const handleChange = (
+        e:
+            | React.ChangeEvent<HTMLInputElement>
+            | React.ChangeEvent<HTMLTextAreaElement>
+    ) => {
+        const { name, value } = e.target
+        setOrderData({
+            ...orderData,
+            [name]: value,
+        })
     }
 
     const onSend = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-
-        if (
-            orderData.name === '' ||
-            orderData.adress === '' ||
-            orderData.city === '' ||
-            orderData.email === '' ||
-            orderData.phone === ''
-        ) {
-            return alert('WTF')
-        } else {
-            setIsOrderSend((prevState) => !prevState)
-        }
+        setIsOrderSend((prevState) => !prevState)
     }
+
+    useEffect(() => {
+        if (!Object.keys(orderData).some((el) => orderData[el] === '')) {
+            setIsSubmitDisabled(false)
+        } else {
+            setIsSubmitDisabled(true)
+        }
+    }, [orderData])
 
     const renderForm = () => {
         return (
@@ -104,63 +65,70 @@ const CheckOutPage = (props: Props) => {
                         </h4>
                         <div>
                             <TextField
+                                name="name"
                                 type="text"
                                 label="Your name"
                                 value={orderData.name}
-                                onChange={handleName}
+                                onChange={handleChange}
                                 color="success"
                             />
                             <TextField
+                                name="surname"
                                 type="text"
                                 label="Your surname"
                                 value={orderData.surname}
-                                onChange={handleSurname}
+                                onChange={handleChange}
                                 variant="outlined"
                                 color="success"
                             />
                         </div>
                         <div>
                             <TextField
+                                name="email"
                                 type="email"
                                 label="Your email"
                                 value={orderData.email}
-                                onChange={handleEmail}
+                                onChange={handleChange}
                                 variant="outlined"
                                 color="success"
                             />
                             <TextField
+                                name="phone"
                                 type="tel"
                                 label="Your phone"
                                 value={orderData.phone}
-                                onChange={handlePhone}
+                                onChange={handleChange}
                                 variant="outlined"
                                 color="success"
                             />
                         </div>
                         <div>
                             <TextField
+                                name="city"
                                 type="text"
                                 label="Your city"
                                 value={orderData.city}
-                                onChange={handleCity}
+                                onChange={handleChange}
                                 variant="outlined"
                                 color="success"
                             />
                             <TextField
+                                name="adress"
                                 type="text"
                                 label="Your adress"
                                 value={orderData.adress}
-                                onChange={handleAdress}
+                                onChange={handleChange}
                                 variant="outlined"
                                 color="success"
                             />
                         </div>
                         <div>
                             <textarea
+                                name="commnets"
                                 maxLength={350}
                                 placeholder="Your comment"
                                 className="order-form-area"
-                                onChange={handleComments}
+                                onChange={handleChange}
                             />
                         </div>
                         <div className="order-form-button">

@@ -8,6 +8,7 @@ interface Props {
     title: string
     shortDescription: string
     link: string
+    isAuthorized: boolean
 }
 
 const HomeProductListItem = ({
@@ -15,6 +16,7 @@ const HomeProductListItem = ({
     title,
     shortDescription,
     link,
+    isAuthorized,
 }: Props) => {
     return (
         <>
@@ -31,7 +33,7 @@ const HomeProductListItem = ({
                         justifyContent: 'center',
                     }}
                 >
-                    <UniversalButtonLink to={link}>
+                    <UniversalButtonLink to={link} isAuthorized={isAuthorized}>
                         View More
                     </UniversalButtonLink>
                 </CardActions>

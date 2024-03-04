@@ -4,13 +4,16 @@ import './HeaderLaptopNavBar.scss'
 import HeaderLaptopLinks from './HeaderLaptopLinks/HeaderLaptopLinks'
 import UniversalButtonLink from 'Container/Components/UniversalComponents/Buttons/UniversalButtonLink'
 
-interface Props {}
-const HeaderLaptopNavBar = (props: Props) => {
+interface Props {
+    isAuthorized: boolean
+}
+
+const HeaderLaptopNavBar = ({ isAuthorized }: Props) => {
     return (
         <div className="header-laptop-section">
             <Container className="header-laptop-container">
                 <HeaderLogo />
-                <HeaderLaptopLinks />
+                <HeaderLaptopLinks isAuthorized={isAuthorized} />
                 <UniversalButtonLink to="">Call Us</UniversalButtonLink>
             </Container>
         </div>

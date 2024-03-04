@@ -1,0 +1,36 @@
+@import '../../../Global/SCSS/variables';
+@import '../../../Global/SCSS/mixins';
+
+@media (min-width: 320px) {
+    .reviews-form {
+        @include display_Direction_Center_Column;
+
+        h4 {
+            text-align: center;
+            font-size: 33px;
+        }
+
+        .reviews-item {
+            input {
+                font-family: 'Nunito', sans-serif;
+            }
+
+            textarea {
+                width: 100%;
+                font-weight: 400;
+                font-size: 1rem;
+                border-radius: 4px;
+                height: 100px;
+                &:focus {
+                    outline: 1px solid $mainColorForButtonsAndTitle;
+                }
+
+                &::placeholder {
+                    padding: 5px;
+                    padding-left: 11px;
+                    font-family: 'Nunito', sans-serif;
+                }
+            }
+        }
+    }
+}

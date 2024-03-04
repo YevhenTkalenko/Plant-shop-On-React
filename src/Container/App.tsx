@@ -13,17 +13,24 @@ import CheckOutPage from './Pages/CheckOutPage/CheckOutPage'
 import ProductPage from './Pages/ProductPage/ProductPage'
 import PageNoFoundFooter from './Pages/PageNotFound/PageNoFoundFooter/PageNoFoundFooter'
 import { Container } from '@mui/material'
+import AuthPage from './Pages/AuthPage/AuthPage'
+import { useState } from 'react'
 
 interface Props {}
 
 const App = (props: Props) => {
     const productInCart = useAppSelector((state) => state.productsInCart)
 
+    const [isAuthorized, setIsAuthorized] = useState<boolean>(true)
+
     return (
         <>
-            <Header />
+            <Header isAuthorized={isAuthorized} />
             <Routes>
-                <Route path="/" element={<HomePage />}></Route>
+                <Route
+                    path="/"
+                    element={<HomePage isAuthorized={isAuthorized} />}
+                ></Route>
                 <Route path="/servises" element={<ServisesPage />}></Route>
                 <Route path="/progects" element={<ProjectsPage />}></Route>
                 <Route
@@ -39,6 +46,7 @@ const App = (props: Props) => {
                 <Route path="/blog" element={<BlogPage />}></Route>
                 <Route path="/contacts" element={<ContactsPage />}></Route>
                 <Route path="/checkout" element={<CheckOutPage />}></Route>
+                <Route path="/auth" element={<AuthPage />}></Route>
                 <Route path="/product/:id" element={<ProductPage />}></Route>
                 <Route path="*" element={<PageNotFound />}></Route>
             </Routes>

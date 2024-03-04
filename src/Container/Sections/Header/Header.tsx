@@ -1,7 +1,11 @@
 import HeaderBottomSection from './HeaderBottomSection/HeaderBottomSection'
 import HeaderTopSection from './HeaderTopSection/HeaderTopSection'
 
-const Header = () => {
+interface Props {
+    isAuthorized: boolean
+}
+
+const Header = ({isAuthorized}: Props) => {
     return (
         <header
             className="header-section"
@@ -12,7 +16,7 @@ const Header = () => {
             }}
         >
             <HeaderTopSection />
-            <HeaderBottomSection />
+            <HeaderBottomSection isAuthorized={isAuthorized}/>
         </header>
     )
 }
