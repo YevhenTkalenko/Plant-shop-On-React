@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import HeaderTopPhoneLinks from './HeaderTopPhoneLinks/HeaderTopPhoneLinks'
 import './HeaderTopSection.scss'
 import HeaderTopLaptopLinks from './HeaderTopLaptopLinks/HeaderTopLaptopLinks'
@@ -6,8 +6,14 @@ import { Button, Container } from '@mui/material'
 import CartHeader from 'Container/Components/CartHeader/CartHeader'
 import { Link } from 'react-router-dom'
 import LoginIcon from '@mui/icons-material/Login'
+import LogoutIcon from '@mui/icons-material/Logout'
+import { AuthContext } from 'Container/context/AuthContext'
 
-const HeaderTopSection = () => {
+interface Props {}
+
+const HeaderTopSection = (props: Props) => {
+    const context = useContext(AuthContext)
+
     const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth)
 
     const handleResize = () => {
@@ -37,7 +43,7 @@ const HeaderTopSection = () => {
                     }}
                 >
                     <CartHeader />
-                    <Button>
+                    <Button onClick={context!.userLogOut}>
                         <Link
                             to="/auth"
                             style={{
@@ -45,12 +51,25 @@ const HeaderTopSection = () => {
                                 alignItems: 'center',
                             }}
                         >
-                            {windowWidth >= 1024 ? 'Log In' : ''}
-                            <LoginIcon
-                                sx={{
-                                    color: 'white',
-                                }}
-                            />
+                            {context?.isAuthorized ? (
+                                <>
+                                    {windowWidth >= 1024 ? 'Log Out' : ''}
+                                    <LogoutIcon
+                                        sx={{
+                                            color: 'white',
+                                        }}
+                                    />
+                                </>
+                            ) : (
+                                <>
+                                    {windowWidth >= 1024 ? 'Log In' : ''}
+                                    <LoginIcon
+                                        sx={{
+                                            color: 'white',
+                                        }}
+                                    />
+                                </>
+                            )}
                         </Link>
                     </Button>
                 </div>

@@ -2,11 +2,9 @@ import { useEffect, useState } from 'react'
 import HeaderPhoneNavBar from './HeaderPhoneNavBar/HeaderPhoneNavBar'
 import HeaderLaptopNavBar from './HeaderLaptopNavBar/HeaderLaptopNavBar'
 
-interface Props {
-    isAuthorized: boolean
-}
+interface Props {}
 
-const HeaderNavBar = ({ isAuthorized }: Props) => {
+const HeaderNavBar = (props: Props) => {
     const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth)
 
     const handleResize = () => {
@@ -22,7 +20,7 @@ const HeaderNavBar = ({ isAuthorized }: Props) => {
     return (
         <>
             {windowWidth >= 1024 ? (
-                <HeaderLaptopNavBar isAuthorized={isAuthorized} />
+                <HeaderLaptopNavBar />
             ) : (
                 <HeaderPhoneNavBar />
             )}

@@ -1,12 +1,12 @@
-import { useEffect } from 'react'
+import { AuthContext } from 'Container/context/AuthContext'
+import { useContext, useEffect } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 
-interface Props {
-    isAuthorized: boolean
-}
+interface Props {}
 
-const HeaderLaptopLinks = ({ isAuthorized }: Props) => {
+const HeaderLaptopLinks = (props: Props) => {
     const { pathname } = useLocation()
+    const context = useContext(AuthContext)
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -17,7 +17,7 @@ const HeaderLaptopLinks = ({ isAuthorized }: Props) => {
             <li>
                 <NavLink to="/">Home</NavLink>
             </li>
-            {isAuthorized ? (
+            {context!.isAuthorized ? (
                 <li>
                     <NavLink to="/servises">Servises</NavLink>
                 </li>
@@ -34,7 +34,7 @@ const HeaderLaptopLinks = ({ isAuthorized }: Props) => {
             <li>
                 <NavLink to="/contacts">Contacts</NavLink>
             </li>
-            {isAuthorized ? (
+            {context!.isAuthorized ? (
                 <li>
                     <NavLink to="/cart">Cart</NavLink>
                 </li>

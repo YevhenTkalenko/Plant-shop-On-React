@@ -7,10 +7,8 @@ import HomeChoseUs from 'Container/Sections/HomeSections/HomeChoseUs/HomeChoseUs
 import HomeQuestions from 'Container/Sections/HomeSections/HomeQuestions/HomeQuestions'
 import HomeStaff from 'Container/Sections/HomeSections/HomeStaff/HomeStaff'
 
-interface Props {
-    isAuthorized: boolean
-}
-const HomePage = ({ isAuthorized }: Props) => {
+interface Props {}
+const HomePage = (props: Props) => {
     return (
         <>
             <HomeTitle />
@@ -25,7 +23,7 @@ const HomePage = ({ isAuthorized }: Props) => {
                     debitis corporis enim minus incidunt porro tempore labore
                     cum?
                 </h5>
-                <HomeProductList isAuthorized={isAuthorized}/>
+                <HomeProductList />
                 <HomeExpierence />
             </Container>
             <HomeChoseUs />

@@ -1,4 +1,6 @@
 import { Button } from '@mui/material'
+import { AuthContext } from 'Container/context/AuthContext'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 
 interface Props {
@@ -7,10 +9,12 @@ interface Props {
     isAuthorized?: boolean
 }
 
-const UniversalButtonLink = ({ to, children, isAuthorized }: Props) => {
+const UniversalButtonLink = ({ to, children }: Props) => {
+    const context = useContext(AuthContext)
+
     return (
         <Button color="success" variant="contained">
-            <Link to={isAuthorized ? to : '/auth'}>{children}</Link>
+            <Link to={context!.isAuthorized ? to : '/auth'}>{children}</Link>
         </Button>
     )
 }
