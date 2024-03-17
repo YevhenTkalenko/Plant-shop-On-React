@@ -3,14 +3,16 @@ import CartProductList from 'Container/Components/CartProductList/CartProductLis
 import CartProductListItemExtended from 'Container/Components/CartProductList/CartProductListItemExtended'
 import CartTotal from 'Container/Components/CartTotal/CartTotal'
 import UniversalTitle from 'Container/Components/UniversalComponents/Title/UniversalTitle'
-import { useAppSelector } from 'Container/Global/Redux/hooks'
+import { useAppDispatch, useAppSelector } from 'Container/Global/Redux/hooks'
 import { Link } from 'react-router-dom'
 import './CartPage.scss'
+import { onSendNewCheckOutData } from 'Container/Global/Redux/checkOutDataReducer'
 
 interface Props {}
 
 const CartPage = (props: Props) => {
     const productsInCart = useAppSelector((state) => state.productsInCart)
+    const dispatch = useAppDispatch()
 
     return (
         <>
@@ -37,7 +39,11 @@ const CartPage = (props: Props) => {
                         <CartTotal productsInCart={productsInCart} />$
                     </h2>
                 </div>
-                <Button color="success" variant="contained">
+                <Button
+                    color="success"
+                    variant="contained"
+                    onClick={() => dispatch(onSendNewCheckOutData())}
+                >
                     <Link to="/checkout">Proceed to checkout </Link>
                 </Button>
             </Container>

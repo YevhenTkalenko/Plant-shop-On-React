@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useNavigate } from 'react-router-dom'
 import Footer from './Sections/Footer/Footer'
 import Header from './Sections/Header/Header'
 import HomePage from './Pages/HomePage/HomePage'
@@ -18,6 +18,7 @@ import PrivateRoutes from './Components/PrivateRoutes/PrivateRoutes'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { isUserHaveLocalData } from './Global/Redux/userDataReducer'
+import EmptyCart from './Components/EmptyCart/EmptyCart'
 
 interface Props {}
 
@@ -52,7 +53,7 @@ const App = (props: Props) => {
                     element={
                         <PrivateRoutes>
                             {!Object.keys(productInCart).length ? (
-                                <span>Cart is Empty</span>
+                                <EmptyCart />
                             ) : (
                                 <CartPage />
                             )}

@@ -1,65 +1,42 @@
 import { Container, TextField, Button, Card } from '@mui/material'
 import UniversalTitle from 'Container/Components/UniversalComponents/Title/UniversalTitle'
-import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './CheckOutPage.scss'
+import { useAppDispatch, useAppSelector } from 'Container/Global/Redux/hooks'
+import {
+    changeCheckOutData,
+    onSendCheckOutData,
+    verifyCheckOutData,
+} from 'Container/Global/Redux/checkOutDataReducer'
+import { useEffect } from 'react'
 
 interface Props {}
 
-interface Order {
-    [name: string]: string
-    surname: string
-    email: string
-    phone: string
-    city: string
-    adress: string
-    commnets: string
-}
-
 const CheckOutPage = (props: Props) => {
-    const [isOrderSend, setIsOrderSend] = useState<boolean>(false)
-    const [isSubmitDisabled, setIsSubmitDisabled] = useState<boolean>(true)
+    const { name, surname, email, phone, city, adress, status, isOrderSend } =
+        useAppSelector((state) => state.checkOutData)
 
-    const [orderData, setOrderData] = useState<Order>({
-        name: '',
-        surname: '',
-        email: '',
-        phone: '',
-        city: '',
-        adress: '',
-        commnets: '',
-    })
+    const dispatch = useAppDispatch()
 
-    const handleChange = (
-        e:
-            | React.ChangeEvent<HTMLInputElement>
-            | React.ChangeEvent<HTMLTextAreaElement>
-    ) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
-        setOrderData({
-            ...orderData,
-            [name]: value,
-        })
+        dispatch(changeCheckOutData({ name, value }))
     }
 
-    const onSend = (e: React.FormEvent<HTMLFormElement>) => {
+    const onSendOrder = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        setIsOrderSend((prevState) => !prevState)
+        dispatch(onSendCheckOutData())
     }
 
     useEffect(() => {
-        if (!Object.keys(orderData).some((el) => orderData[el] === '')) {
-            setIsSubmitDisabled(false)
-        } else {
-            setIsSubmitDisabled(true)
-        }
-    }, [orderData])
+        dispatch(verifyCheckOutData())
+    }, [name, surname, email, phone, city, adress])
 
     const renderForm = () => {
         return (
             <Container>
                 <Card variant="elevation">
-                    <form onSubmit={onSend} className="order-form">
+                    <form className="order-form" onSubmit={onSendOrder}>
                         <h4>
                             Please, complete <span>the Form</span>
                         </h4>
@@ -68,7 +45,7 @@ const CheckOutPage = (props: Props) => {
                                 name="name"
                                 type="text"
                                 label="Your name"
-                                value={orderData.name}
+                                value={name}
                                 onChange={handleChange}
                                 color="success"
                             />
@@ -76,7 +53,7 @@ const CheckOutPage = (props: Props) => {
                                 name="surname"
                                 type="text"
                                 label="Your surname"
-                                value={orderData.surname}
+                                value={surname}
                                 onChange={handleChange}
                                 variant="outlined"
                                 color="success"
@@ -87,7 +64,7 @@ const CheckOutPage = (props: Props) => {
                                 name="email"
                                 type="email"
                                 label="Your email"
-                                value={orderData.email}
+                                value={email}
                                 onChange={handleChange}
                                 variant="outlined"
                                 color="success"
@@ -96,7 +73,7 @@ const CheckOutPage = (props: Props) => {
                                 name="phone"
                                 type="tel"
                                 label="Your phone"
-                                value={orderData.phone}
+                                value={phone}
                                 onChange={handleChange}
                                 variant="outlined"
                                 color="success"
@@ -107,7 +84,7 @@ const CheckOutPage = (props: Props) => {
                                 name="city"
                                 type="text"
                                 label="Your city"
-                                value={orderData.city}
+                                value={city}
                                 onChange={handleChange}
                                 variant="outlined"
                                 color="success"
@@ -116,7 +93,7 @@ const CheckOutPage = (props: Props) => {
                                 name="adress"
                                 type="text"
                                 label="Your adress"
-                                value={orderData.adress}
+                                value={adress}
                                 onChange={handleChange}
                                 variant="outlined"
                                 color="success"
@@ -128,7 +105,6 @@ const CheckOutPage = (props: Props) => {
                                 maxLength={350}
                                 placeholder="Your comment"
                                 className="order-form-area"
-                                onChange={handleChange}
                             />
                         </div>
                         <div className="order-form-button">
@@ -136,6 +112,7 @@ const CheckOutPage = (props: Props) => {
                                 type="submit"
                                 variant="contained"
                                 color="success"
+                                disabled={!status}
                             >
                                 Approve your Order
                             </Button>
@@ -149,8 +126,8 @@ const CheckOutPage = (props: Props) => {
     const renderMessage = () => {
         return (
             <>
-                <div>Dear, {orderData.name} thanks for your order</div>
-                <div>Your adress is {orderData.adress}</div>
+                <div>Dear, {name} thanks for your order</div>
+                <div>Your adress is {adress}</div>
                 <Button type="button" variant="contained" color="success">
                     <Link to="/">Back to Home</Link>
                 </Button>

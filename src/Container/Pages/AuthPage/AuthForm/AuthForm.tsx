@@ -31,6 +31,7 @@ const AuthForm = (props: Props) => {
     return (
         <form className="auth-form" onSubmit={validUserData}>
             <TextField
+                error={errors.emailErrorStatus}
                 type="email"
                 name="email"
                 variant="outlined"
@@ -40,8 +41,13 @@ const AuthForm = (props: Props) => {
                 value={email}
                 onChange={userFormData}
             />
-            {errors.emailErrorStatus ? <div>{errors.emailError}</div> : ''}
+            {errors.emailErrorStatus ? (
+                <div className="auth_errors">{errors.emailError}</div>
+            ) : (
+                ''
+            )}
             <TextField
+                error={errors.passwordErrorStatus}
                 type="password"
                 name="password"
                 variant="outlined"
@@ -52,7 +58,7 @@ const AuthForm = (props: Props) => {
                 onChange={userFormData}
             />
             {errors.passwordErrorStatus ? (
-                <div>{errors.passwordError}</div>
+                <div className="auth_errors">{errors.passwordError}</div>
             ) : (
                 ''
             )}
