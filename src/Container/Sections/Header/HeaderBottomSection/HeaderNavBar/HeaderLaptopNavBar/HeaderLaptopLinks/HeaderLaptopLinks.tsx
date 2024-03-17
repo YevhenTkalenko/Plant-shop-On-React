@@ -1,12 +1,13 @@
-import { AuthContext } from 'Container/context/AuthContext'
-import { useContext, useEffect } from 'react'
+import { useAppSelector } from 'Container/Global/Redux/hooks'
+import {  useEffect } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 
 interface Props {}
 
 const HeaderLaptopLinks = (props: Props) => {
     const { pathname } = useLocation()
-    const context = useContext(AuthContext)
+
+    const { status } = useAppSelector((state) => state.userDataState)
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -17,7 +18,7 @@ const HeaderLaptopLinks = (props: Props) => {
             <li>
                 <NavLink to="/">Home</NavLink>
             </li>
-            {context!.isAuthorized ? (
+            {status ? (
                 <li>
                     <NavLink to="/servises">Servises</NavLink>
                 </li>
@@ -34,7 +35,7 @@ const HeaderLaptopLinks = (props: Props) => {
             <li>
                 <NavLink to="/contacts">Contacts</NavLink>
             </li>
-            {context!.isAuthorized ? (
+            {status ? (
                 <li>
                     <NavLink to="/cart">Cart</NavLink>
                 </li>

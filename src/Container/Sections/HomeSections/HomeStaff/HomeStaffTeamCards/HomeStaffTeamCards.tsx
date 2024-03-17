@@ -20,8 +20,8 @@ const HomeStaffTeamCards = () => {
         >
             {HomeStaff.map(({ id, image, title, sub_title }: HomeStaffI) => {
                 return (
-                    <Grid md={3} lg={3} item>
-                        <Card className="home-team-card" key={id}>
+                    <Grid md={3} lg={3} item key={id}>
+                        <Card className="home-team-card">
                             <div className="home-team-card-item">
                                 <img src={image} alt="image" />
                                 <div className="home-team-card-description">

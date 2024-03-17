@@ -1,4 +1,4 @@
-import { Route, Routes, useNavigate } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Footer from './Sections/Footer/Footer'
 import Header from './Sections/Header/Header'
 import HomePage from './Pages/HomePage/HomePage'
@@ -14,95 +14,76 @@ import ProductPage from './Pages/ProductPage/ProductPage'
 import PageNoFoundFooter from './Pages/PageNotFound/PageNoFoundFooter/PageNoFoundFooter'
 import { Container } from '@mui/material'
 import AuthPage from './Pages/AuthPage/AuthPage'
-import { useState } from 'react'
-import { AuthContext } from './context/AuthContext'
+import PrivateRoutes from './Components/PrivateRoutes/PrivateRoutes'
+import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+import { isUserHaveLocalData } from './Global/Redux/userDataReducer'
 
 interface Props {}
 
-interface userDataI {
-    email: string
-    password: string | number
-}
-
 const App = (props: Props) => {
     const productInCart = useAppSelector((state) => state.productsInCart)
-    const navigate = useNavigate()
+    const dispatch = useDispatch()
 
-    const [isAuthorized, setIsAuthorized] = useState<boolean>(false)
-    const [userData, setUserData] = useState<userDataI>({
-        email: '',
-        password: '',
+    const userLocalData = () => {
+        dispatch(isUserHaveLocalData())
+    }
+
+    useEffect(() => {
+        userLocalData()
     })
-
-    const isUserAuthorizes = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target
-        setUserData((prevState) => ({
-            ...prevState,
-            [name]: value,
-        }))
-    }
-
-    const validUserData = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        if (userData.email === '' || userData.password === '') {
-            return alert('WTF')
-        }
-
-        navigate('/', { replace: true })
-        setUserData({
-            email: '',
-            password: '',
-        })
-        return setIsAuthorized(true)
-    }
-
-    const userLogOut = () => {
-        if (isAuthorized) {
-            return setIsAuthorized(false)
-        }
-    }
 
     return (
         <>
-            <AuthContext.Provider
-                value={{
-                    isAuthorized,
-                    isUserAuthorizes,
-                    userData,
-                    validUserData,
-                    userLogOut,
-                }}
-            >
-                <Header />
-                <Routes>
-                    <Route path="/" element={<HomePage />}></Route>
-                    <Route path="/servises" element={<ServisesPage />}></Route>
-                    <Route path="/progects" element={<ProjectsPage />}></Route>
-                    <Route
-                        path="/cart"
-                        element={
-                            !Object.keys(productInCart).length ? (
-                                'Cart is Empty'
+            <Header />
+            <Routes>
+                <Route path="/" element={<HomePage />}></Route>
+                <Route path="/progects" element={<ProjectsPage />}></Route>
+                <Route
+                    path="/servises"
+                    element={
+                        <PrivateRoutes>
+                            <ServisesPage />
+                        </PrivateRoutes>
+                    }
+                ></Route>
+                <Route
+                    path="/cart"
+                    element={
+                        <PrivateRoutes>
+                            {!Object.keys(productInCart).length ? (
+                                <span>Cart is Empty</span>
                             ) : (
                                 <CartPage />
-                            )
-                        }
-                    ></Route>
-                    <Route path="/blog" element={<BlogPage />}></Route>
-                    <Route path="/contacts" element={<ContactsPage />}></Route>
-                    <Route path="/checkout" element={<CheckOutPage />}></Route>
-                    <Route path="/auth" element={<AuthPage />}></Route>
-                    <Route
-                        path="/product/:id"
-                        element={<ProductPage />}
-                    ></Route>
-                    <Route path="*" element={<PageNotFound />}></Route>
-                </Routes>
-                <Container>
-                    <PageNoFoundFooter />
-                </Container>
-                <Footer />
-            </AuthContext.Provider>
+                            )}
+                        </PrivateRoutes>
+                    }
+                ></Route>
+                <Route path="/blog" element={<BlogPage />}></Route>
+                <Route path="/contacts" element={<ContactsPage />}></Route>
+                <Route
+                    path="/checkout"
+                    element={
+                        <PrivateRoutes>
+                            <CheckOutPage />
+                        </PrivateRoutes>
+                    }
+                ></Route>
+                <Route path="/auth" element={<AuthPage />}></Route>
+                <Route
+                    path="/product/:id"
+                    element={
+                        <PrivateRoutes>
+                            <ProductPage />
+                        </PrivateRoutes>
+                    }
+                ></Route>
+                <Route path="*" element={<PageNotFound />}></Route>
+            </Routes>
+            <Container>
+                <PageNoFoundFooter />
+            </Container>
+            <Footer />
         </>
     )
 }

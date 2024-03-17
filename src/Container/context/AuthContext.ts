@@ -9,6 +9,12 @@ interface AuthContextI {
         password: string | number
     }
     userLogOut: () => void
+    erorrAuth: {
+        emailStatus: boolean,
+        passwordStatus: boolean,
+        email: string
+        password: string
+    }
 }
 
 export const AuthContext = createContext<AuthContextI | null>(null)

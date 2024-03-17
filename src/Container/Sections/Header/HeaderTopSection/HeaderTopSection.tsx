@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import HeaderTopPhoneLinks from './HeaderTopPhoneLinks/HeaderTopPhoneLinks'
 import './HeaderTopSection.scss'
 import HeaderTopLaptopLinks from './HeaderTopLaptopLinks/HeaderTopLaptopLinks'
@@ -7,12 +7,14 @@ import CartHeader from 'Container/Components/CartHeader/CartHeader'
 import { Link } from 'react-router-dom'
 import LoginIcon from '@mui/icons-material/Login'
 import LogoutIcon from '@mui/icons-material/Logout'
-import { AuthContext } from 'Container/context/AuthContext'
+import { useAppDispatch, useAppSelector } from 'Container/Global/Redux/hooks'
+import { userLogOut } from 'Container/Global/Redux/userDataReducer'
 
 interface Props {}
 
 const HeaderTopSection = (props: Props) => {
-    const context = useContext(AuthContext)
+    const dispatch = useAppDispatch()
+    const { status } = useAppSelector((state) => state.userDataState)
 
     const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth)
 
@@ -43,7 +45,7 @@ const HeaderTopSection = (props: Props) => {
                     }}
                 >
                     <CartHeader />
-                    <Button onClick={context!.userLogOut}>
+                    <Button onClick={() => dispatch(userLogOut())}>
                         <Link
                             to="/auth"
                             style={{
@@ -51,7 +53,7 @@ const HeaderTopSection = (props: Props) => {
                                 alignItems: 'center',
                             }}
                         >
-                            {context?.isAuthorized ? (
+                            {status ? (
                                 <>
                                     {windowWidth >= 1024 ? 'Log Out' : ''}
                                     <LogoutIcon
