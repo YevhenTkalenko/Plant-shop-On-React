@@ -63,7 +63,12 @@ export const userDataReducer = createSlice({
                 ...state,
                 email: '',
                 password: '',
-                status: true
+                status: true,
+                errors: {
+                    ...state.errors,
+                    emailErrorStatus: false,
+                    passwordErrorStatus: false
+                }
             }
         }, // user data is non empty
         userLogOut: (state) => {
