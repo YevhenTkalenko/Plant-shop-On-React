@@ -13,7 +13,9 @@ interface Props {}
 const AuthForm = (props: Props) => {
     const dispatch = useAppDispatch()
     const navigation = useNavigate()
-    const { email, password } = useAppSelector((state) => state.userDataState)
+    const { email, password, errors } = useAppSelector(
+        (state) => state.userDataState
+    )
 
     const userFormData = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
@@ -38,11 +40,7 @@ const AuthForm = (props: Props) => {
                 value={email}
                 onChange={userFormData}
             />
-            {/* {context!.erorrAuth.emailStatus ? (
-                <div>{context!.erorrAuth.email}</div>
-            ) : (
-                ''
-            )} */}
+            {errors.emailErrorStatus ? <div>{errors.emailError}</div> : ''}
             <TextField
                 type="password"
                 name="password"
@@ -53,11 +51,12 @@ const AuthForm = (props: Props) => {
                 value={password}
                 onChange={userFormData}
             />
-            {/* {context!.erorrAuth.passwordStatus ? (
-                <div>{context!.erorrAuth.password}</div>
+            {errors.passwordErrorStatus ? (
+                <div>{errors.passwordError}</div>
             ) : (
                 ''
-            )} */}
+            )}
+
             <div className="auth-btns">
                 <Button variant="contained" color="success" type="submit">
                     Log In

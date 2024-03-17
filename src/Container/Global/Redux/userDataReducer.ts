@@ -4,29 +4,25 @@ interface UserDataI {
     status: boolean
     email: string
     password: string | number
+    errors: {
+        emailError: string
+        emailErrorStatus: boolean
+        passwordError: string
+        passwordErrorStatus: boolean
+    }
 }
 
 export const initialState: UserDataI = {
     status: false,
     email: '',
     password: '',
+    errors: {
+        emailError: 'Empty email',
+        emailErrorStatus: false,
+        passwordError: 'Empty passsword',
+        passwordErrorStatus: false
+    }
 }
-
-interface ErorrAuthI {
-    emailStatus: boolean
-    passwordStatus: boolean
-    email: string
-    password: string
-}
-
-export const errorAuth: ErorrAuthI = {
-    emailStatus: false,
-    passwordStatus: false,
-    email: 'Email error',
-    password: 'Password error'
-
-}
-
 
 
 export const userDataReducer = createSlice({
@@ -41,8 +37,24 @@ export const userDataReducer = createSlice({
         }, // user data into the input fields
         userDataValidation: (state, actions) => {
 
-            if (state.email === '' || state.password === '') {
-                return alert('Error')
+            if (state.email === '') {
+                return {
+                    ...state,
+                    errors: {
+                        ...state.errors,
+                        emailErrorStatus: true
+                    }
+                }
+            }
+
+            if (state.password === '') {
+                return {
+                    ...state,
+                    errors: {
+                        ...state.errors,
+                        passwordErrorStatus: true
+                    }
+                }
             }
 
             actions.payload.navigation('/')
